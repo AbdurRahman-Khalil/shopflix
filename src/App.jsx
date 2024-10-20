@@ -14,7 +14,7 @@ export const App = () => {
 
       <main>
         <Routes>
-          <Route path="/shopflix/" element={<HomePage />}></Route>
+          <Route path="/" element={<HomePage />}></Route>
           
         </Routes>
       </main>

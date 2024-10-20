@@ -90,25 +90,25 @@ export const Navbar = () => {
                     className={`${staggerChildren ? "delay-400 opacity-100 translate-x-0" : "opacity-0 translate-x-5"
                         } transition duration-300`}
                 >
-                    <NavbarLink destination={"/shopflix/"} navbarLinkText={"Home"} />
+                    <NavbarLink destination={"/"} navbarLinkText={"Home"} />
                 </li>
                 <li
                     className={`${staggerChildren ? "delay-100 opacity-100 translate-x-0" : "opacity-0 translate-x-5"
                         } transition duration-300`}
                 >
-                    <NavbarLink destination={"/shopflix//products"} navbarLinkText={"Products"} />
+                    <NavbarLink destination={"/products"} navbarLinkText={"Products"} />
                 </li>
                 <li
                     className={`${staggerChildren ? "delay-200 opacity-100 translate-x-0" : "opacity-0 translate-x-5"
                         } transition duration-300`}
                 >
-                    <NavbarLink destination={"/shopflix//about"} navbarLinkText={"About"} />
+                    <NavbarLink destination={"/about"} navbarLinkText={"About"} />
                 </li>
                 <li
                     className={`${staggerChildren ? "delay-300 opacity-100 translate-x-0" : "opacity-0 translate-x-5"
                         } transition duration-300`}
                 >
-                    <NavbarLink destination={"/shopflix//contact"} navbarLinkText={"Contact"} />
+                    <NavbarLink destination={"/contact"} navbarLinkText={"Contact"} />
                 </li>
             </ul>
         </nav>
