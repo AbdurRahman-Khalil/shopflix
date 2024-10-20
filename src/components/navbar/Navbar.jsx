@@ -81,7 +81,7 @@ export const Navbar = () => {
 
             <ul
                 ref={menuRef}
-                className={`space-y-5 w-full text-end ${isMenuOpen
+                className={`space-y-5 w-full text-end z-10 ${isMenuOpen
                     ? "opacity-100 translate-y-0 duration-300 ease-in-out"
                     : "opacity-0 -translate-y-5 pointer-events-none"
                     } transition-all duration-300 ease-in-out absolute top-[4.5rem] right-0 bg-neutral-50 shadow-lg rounded-md px-5 py-7 md:hidden`}
