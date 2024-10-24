@@ -30,7 +30,7 @@ import shoeImg8 from "../../assets/products/shoes/breathable_running_shoes.webp"
 import shoeImg9 from "../../assets/products/shoes/casual_leather_moccasins.jpg";
 import shoeImg10 from "../../assets/products/shoes/faux_fur_winter_boots.jpg";
 
-import hoodieImg1 from "../../assets/products/hoodies/black_zip-up_hoodiejpg";
+import hoodieImg1 from "../../assets/products/hoodies/black_zip-up_hoodie.jpg";
 import hoodieImg2 from "../../assets/products/hoodies/oversized_grey_hoodie.jpg";
 import hoodieImg3 from "../../assets/products/hoodies/fleece_lined_hoodie.jpg";
 import hoodieImg4 from "../../assets/products/hoodies/graphic_print_hoodie.jpg";
