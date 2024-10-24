@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 
-import { NavbarLink } from "./NavbarLink";
+import { MenuLink } from "./MenuLink";
 
 import { CgMenuLeftAlt } from "react-icons/cg";
 import { IoClose } from "react-icons/io5";
@@ -11,6 +11,7 @@ import { IoClose } from "react-icons/io5";
 export const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [staggerChildren, setStaggerChildren] = useState(false);
+    
     const menuRef = useRef(null);
     const menuButtonRef = useRef(null);
 
@@ -55,7 +56,7 @@ export const Navbar = () => {
 
     }, [isMenuOpen]);
 
-    
+
     return (
         <nav className="flex items-center justify-between px-3.5 my-1 xl:mx-auto xl:container">
             <Link to={"/"} className="text-[2.4rem] sm:text-[2.5rem] font-bold z-20">
@@ -64,10 +65,30 @@ export const Navbar = () => {
 
             {/* Larger screens */}
             <ul className="hidden md:flex items-center gap-10">
-                <NavbarLink destination={"/"} navbarLinkText={"Home"} />
-                <NavbarLink destination={"/products"} navbarLinkText={"Products"} />
-                <NavbarLink destination={"/about"} navbarLinkText={"About"} />
-                <NavbarLink destination={"/contact"} navbarLinkText={"Contact"} />
+                <MenuLink
+                    destination={"/"}
+                    menuLinkText={"Home"}
+                    addStyles={"text-lg font-semibold"}
+                    activeStyles={"relative before:absolute before:-bottom-1 before:left-0 before:bg-rose-400/60 before:w-full before:h-[0.205rem] before:rounded-full"}
+                />
+                <MenuLink
+                    destination={"/products/all"}
+                    menuLinkText={"Products"}
+                    addStyles={"text-lg font-semibold"}
+                    activeStyles={"relative before:absolute before:-bottom-1 before:left-0 before:bg-rose-400/60 before:w-full before:h-[0.205rem] before:rounded-full"}
+                />
+                <MenuLink
+                    destination={"/about"}
+                    menuLinkText={"About"}
+                    addStyles={"text-lg font-semibold"}
+                    activeStyles={"relative before:absolute before:-bottom-1 before:left-0 before:bg-rose-400/60 before:w-full before:h-[0.205rem] before:rounded-full"}
+                />
+                <MenuLink
+                    destination={"/contact"}
+                    menuLinkText={"Contact"}
+                    addStyles={"text-lg font-semibold"}
+                    activeStyles={"relative before:absolute before:-bottom-1 before:left-0 before:bg-rose-400/60 before:w-full before:h-[0.205rem] before:rounded-full"}
+                />
             </ul>
 
             {/* Mobile */}
@@ -90,25 +111,49 @@ export const Navbar = () => {
                     className={`${staggerChildren ? "delay-400 opacity-100 translate-x-0" : "opacity-0 translate-x-5"
                         } transition duration-300`}
                 >
-                    <NavbarLink destination={"/"} navbarLinkText={"Home"} />
+                    <MenuLink
+                        destination={"/"}
+                        menuLinkText={"Home"}
+                        addStyles={"text-xl font-semibold"}
+                        activeStyles={"relative before:absolute before:-bottom-1 before:left-0 before:bg-rose-400/60 before:w-full before:h-[0.205rem] before:rounded-full"}
+                        onClick={closeMenu}
+                    />
                 </li>
                 <li
-                    className={`${staggerChildren ? "delay-100 opacity-100 translate-x-0" : "opacity-0 translate-x-5"
+                    className={`${staggerChildren ? "delay-400 opacity-100 translate-x-0" : "opacity-0 translate-x-5"
                         } transition duration-300`}
                 >
-                    <NavbarLink destination={"/products"} navbarLinkText={"Products"} />
+                    <MenuLink
+                        destination={"/products/all"}
+                        menuLinkText={"Products"}
+                        addStyles={"text-xl font-semibold"}
+                        activeStyles={"relative before:absolute before:-bottom-1 before:left-0 before:bg-rose-400/60 before:w-full before:h-[0.205rem] before:rounded-full"}
+                        onClick={closeMenu}
+                    />
                 </li>
                 <li
                     className={`${staggerChildren ? "delay-200 opacity-100 translate-x-0" : "opacity-0 translate-x-5"
                         } transition duration-300`}
                 >
-                    <NavbarLink destination={"/about"} navbarLinkText={"About"} />
+                    <MenuLink
+                        destination={"/about"}
+                        menuLinkText={"About"}
+                        addStyles={"text-xl font-semibold"}
+                        activeStyles={"relative before:absolute before:-bottom-1 before:left-0 before:bg-rose-400/60 before:w-full before:h-[0.205rem] before:rounded-full"}
+                        onClick={closeMenu}
+                    />
                 </li>
                 <li
                     className={`${staggerChildren ? "delay-300 opacity-100 translate-x-0" : "opacity-0 translate-x-5"
                         } transition duration-300`}
                 >
-                    <NavbarLink destination={"/contact"} navbarLinkText={"Contact"} />
+                    <MenuLink
+                        destination={"/contact"}
+                        menuLinkText={"Contact"}
+                        addStyles={"text-xl font-semibold"}
+                        activeStyles={"relative before:absolute before:-bottom-1 before:left-0 before:bg-rose-400/60 before:w-full before:h-[0.205rem] before:rounded-full"}
+                        onClick={closeMenu}
+                    />
                 </li>
             </ul>
         </nav>
