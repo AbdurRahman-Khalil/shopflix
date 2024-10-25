@@ -12,7 +12,7 @@ export const Hoodies = () => {
 
 
     return (
-        <motion.section layout id="hoodies" className="grid grid-cols-4 gap-3">
+        <motion.section layout id="hoodies" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[1.2rem] sm:gap-[0.85rem] min-[850px]:gap-[0.95rem] lg:gap-[0.85rem] xl:gap-[0.82rem]">
             <AnimatePresence>
                 {hoodiesData.map(hoodie => (
                     <Product key={hoodie.id} prod={hoodie} />

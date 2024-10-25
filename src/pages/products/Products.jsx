@@ -11,7 +11,7 @@ export const Products = () => {
             <h2 className="text-[2rem] font-semibold mb-8 relative after:absolute after:-bottom-1.5 after:left-0 after:bg-neutral-800 after:h-[0.2rem] after:w-[6.5rem] after:rounded-full">
                 Our Products
             </h2>
-            <ul className="list-none max-[565px]:overflow-x-scroll">
+            <ul className="list-none max-[610px]:overflow-x-scroll">
                 <div className="flex items-center gap-7 font-medium mb-5 ">
                     <MenuLink
                         destination={"/products/all"}

@@ -33,17 +33,17 @@ export const Product = ({ prod }) => {
                 },
                 delay: 0.1 
             }}
-            className="relative bg-neutral-50 rounded-xl ring-1 ring-neutral-900/15 p-2"
+            className="relative bg-neutral-50 rounded-xl ring-2 ring-neutral-900/10 p-1.5"
         >
             <p className="text-[0.9rem] text-neutral-100 tracking-wider absolute top-2 right-2 z-10 px-[0.7rem] pt-1.5 pb-[0.35rem]
                 bg-neutral-800/20 backdrop-blur-xl rounded-se-xl rounded-es-xl"
             >
                 {prod.category}
             </p>
-            <div id="product-img" className="h-[280px] overflow-hidden rounded-xl">
+            <div id="product-img" className="h-[300px] min-[405px]:h-[330px] min-[505px]:h-[360px] sm:h-[300px] min-[740px]:h-[330px] min-[900px]:h-[360px] lg:h-[300px] xl:h-[280px] overflow-hidden rounded-xl duration-200 ease-in-out">
                 <img src={prod.image} className="max-w-full min-h-full rounded-xl object-cover object-center hover:scale-105 duration-200 ease-in-out cursor-pointer" alt="" />
             </div>
-            <div id="product-text" className="pl-0.5 pr-1 mt-2">
+            <div id="product-text" className="px-[0.33rem] mt-2">
                 <p className="text-[1.3rem] font-semibold line-clamp-1 cursor-pointer">{prod.title}</p>
                 <div className="flex justify-between items-center mt-2.5 mb-1.5">
                     <div className={`ratings flex items-center gap-[0.2rem]`}>
@@ -71,14 +71,14 @@ export const Product = ({ prod }) => {
                     </div>
                     <p className="font-medium">&#x24; <span>{prod.price}</span></p>
                 </div>
-                <p className="mb-[1.35rem] line-clamp-2 leading-5 text-[0.89rem] font-medium relative group">
+                <p className="mb-[1.3rem] line-clamp-2 leading-5 text-[0.89rem] font-medium relative group">
                     {prod.description}
                     <Link to={"/products/hoodies/1"} className="absolute bottom-[0.05rem] right-[0.1rem] bg-neutral-50 p-[0.1rem] opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto duration-200 ease-linear ring-1 ring-neutral-900/20 rounded">
                         <RiShareBoxLine />
                     </Link>
                 </p>
 
-                <div className="flex justify-between items-center mb-2 text-[1.2rem]">
+                <div className="flex justify-between items-center mb-2.5 text-[1.2rem]">
                     <button onClick={() => setHeart(() => !heart)}>
                         {
                             heart ? <FaHeart color="red" /> : <FaRegHeart color="red" />
@@ -100,6 +100,5 @@ export const Product = ({ prod }) => {
         </motion.div>
     );
 };
-
 
 
