@@ -12,7 +12,7 @@ import glassImg1 from "../../assets/products/glasses/aviator_metal_glasses.jpg";
 import glassImg2 from "../../assets/products/glasses/black_square_frames.jpeg";
 import glassImg3 from "../../assets/products/glasses/blue_light_glasses.jpg";
 import glassImg4 from "../../assets/products/glasses/retro_round_glasses.jpg";
-import glassImg5 from "../../assets/products/glasses/polarized_sunglasses.webp";
+import glassImg5 from "../../assets/products/glasses/polarized_sunglasses.jpg";
 import glassImg6 from "../../assets/products/glasses/oversized_brown_frames.webp";
 import glassImg7 from "../../assets/products/glasses/tortoise_shell_glasses.webp";
 import glassImg8 from "../../assets/products/glasses/gradient_lens_shades.webp";
