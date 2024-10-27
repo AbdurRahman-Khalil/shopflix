@@ -10,14 +10,14 @@ export const SearchBar = () => {
 
 
     return (
-        <form className={`flex -mt-[0.7rem] relative`}
+        <form className={`relative`}
             onSubmit={(e) => e.preventDefualt()}
         >
-            <button className="absolute top-[0.85rem] left-[0.7rem]">
-                <FiSearch className="text-[1.2rem] text-neutral-700" />
+            <button className="absolute top-[0.9rem] left-[0.73rem] duration-200 ease-linear">
+                <FiSearch className="text-[1.275rem] text-neutral-700" />
             </button>
             <input
-                className="text-[0.9rem] pr-[0.8rem] pl-10 py-3 w-72 border-2 border-neutral-600/90 focus:border-neutral-300 outline-none rounded-lg font-semibold tracking-wide placeholder:font-medium placeholder:tracking-normal duration-200 ease-linear"
+                className="text-[0.93rem] pr-[0.83rem] pl-[2.42rem] py-3 w-full sm:w-[23rem] border-2 border-neutral-600/90 focus:border-neutral-300 outline-none rounded-lg font-semibold tracking-wide placeholder:font-medium placeholder:tracking-normal duration-200 ease-linear"
                 type="text"
                 name="searchQuery"
                 id="searchQuery"
