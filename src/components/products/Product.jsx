@@ -19,23 +19,23 @@ export const Product = ({ prod }) => {
     return (
         <motion.div id="product"
             layout
-            initial={{ opacity: 0.5, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0.5, scale: 0.8 }}
+            initial={{ opacity: 0.33 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0.33 }}
             transition={{
                 opacity: {
-                    duration: 0.6,
+                    duration: 0.5,
                     ease: [0.4, 0, 0.2, 1], 
                 },
-                scale: {
-                    duration: 0.6,
-                    ease: [0.25, 1, 0.5, 1],
-                },
+                // scale: {
+                //     duration: 0.4,
+                //     ease: [0.25, 1, 0.5, 1],
+                // },
                 delay: 0.1 
             }}
             className="relative bg-neutral-50 rounded-xl ring-2 ring-neutral-900/10 p-1.5"
         >
-            <p className="text-[0.9rem] text-neutral-100 tracking-wider absolute top-2 right-2 z-10 px-[0.7rem] pt-1.5 pb-[0.35rem]
+            <p className="text-[0.9rem] text-neutral-100 tracking-wider absolute top-1.5 right-1.5 z-10 px-[0.7rem] pt-1.5 pb-[0.35rem]
                 bg-neutral-800/20 backdrop-blur-xl rounded-se-xl rounded-es-xl"
             >
                 {prod.category}
@@ -78,7 +78,7 @@ export const Product = ({ prod }) => {
                     </Link>
                 </p>
 
-                <div className="flex justify-between items-center mb-2.5 text-[1.2rem]">
+                <div className="flex justify-between items-center mb-[0.7rem] text-[1.25rem]">
                     <button onClick={() => setHeart(() => !heart)}>
                         {
                             heart ? <FaHeart color="red" /> : <FaRegHeart color="red" />
