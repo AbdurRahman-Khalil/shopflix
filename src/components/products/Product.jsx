@@ -33,7 +33,7 @@ export const Product = ({ prod }) => {
                 // },
                 delay: 0.1 
             }}
-            className="relative bg-neutral-50 rounded-xl ring-2 ring-neutral-900/10 p-1.5"
+            className="relative bg-neutral-50 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-100 rounded-xl ring-2 ring-neutral-900/10 dark:ring-neutral-50/10 p-1.5"
         >
             <p className="text-[0.9rem] text-neutral-100 tracking-wider absolute top-1.5 right-1.5 z-10 px-[0.7rem] pt-1.5 pb-[0.35rem]
                 bg-neutral-800/20 backdrop-blur-xl rounded-se-xl rounded-es-xl"
@@ -44,7 +44,7 @@ export const Product = ({ prod }) => {
                 <img src={prod.image} className="max-w-full min-h-full rounded-xl object-cover object-center hover:scale-105 duration-200 ease-in-out cursor-pointer" alt="" />
             </div>
             <div id="product-text" className="px-[0.33rem] mt-2">
-                <p className="text-[1.3rem] font-semibold line-clamp-1 cursor-pointer">{prod.title}</p>
+                <p className="text-[1.3rem] font-semibold dark:font-medium dark:tracking-wide line-clamp-1 cursor-pointer">{prod.title}</p>
                 <div className="flex justify-between items-center mt-2.5 mb-1.5">
                     <div className={`ratings flex items-center gap-[0.2rem]`}>
                         {[...Array(5)].map((star, index) => {
@@ -69,11 +69,11 @@ export const Product = ({ prod }) => {
                             )
                         })}
                     </div>
-                    <p className="font-medium">&#x24; <span>{prod.price}</span></p>
+                    <p className="font-medium dark:font-normal tracking-wide">&#x24; <span>{prod.price}</span></p>
                 </div>
-                <p className="mb-[1.3rem] line-clamp-2 leading-5 text-[0.89rem] font-medium relative group">
+                <p className="mb-[1.3rem] line-clamp-2 leading-5 text-[0.89rem] font-medium dark:font-normal dark:tracking-wide relative group">
                     {prod.description}
-                    <Link to={"/products/hoodies/1"} className="absolute bottom-[0.05rem] right-[0.1rem] bg-neutral-50 p-[0.1rem] opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto duration-200 ease-linear ring-1 ring-neutral-900/20 rounded">
+                    <Link to={"/products/hoodies/1"} className="absolute bottom-[0.05rem] right-[0.1rem] bg-neutral-50 dark:bg-neutral-900 p-[0.1rem] opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto duration-200 ease-linear ring-1 ring-neutral-900/20 dark:ring-neutral-50/20 rounded">
                         <RiShareBoxLine />
                     </Link>
                 </p>
@@ -81,20 +81,19 @@ export const Product = ({ prod }) => {
                 <div className="flex justify-between items-center mb-[0.7rem] text-[1.25rem]">
                     <button onClick={() => setHeart(() => !heart)}>
                         {
-                            heart ? <FaHeart color="red" /> : <FaRegHeart color="red" />
+                            heart ? <FaHeart className="text-red-500" /> : <FaRegHeart className="text-red-500" />
                         }
                     </button>
                     <button onClick={() => setWishlist(() => !wishlist)}>
                         {
-                            wishlist ? <BsBookmarkCheckFill color="#03a9f4" /> : <BsBookmarkPlus color="#03a9f4" />
+                            wishlist ? <BsBookmarkCheckFill className="text-sky-500" /> : <BsBookmarkPlus className="text-sky-500" />
                         }
                     </button>
                     <button onClick={() => setCart(() => !cart)}>
                         {
-                            cart ? <BsCartCheckFill color="#4caf50" /> : <BsCartPlus color="#4caf50" />
+                            cart ? <BsCartCheckFill className="text-emerald-500" /> : <BsCartPlus className="text-emerald-500" />
                         }
                     </button>
-                    <button className="text-base font-semibold">Buy</button>
                 </div>
             </div>
         </motion.div>

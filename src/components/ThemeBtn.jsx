@@ -3,16 +3,17 @@ import { useEffect } from "react";
 import useThemeStore from "../stores/theme/ThemeStore";
 
 import { FiSun } from "react-icons/fi";
-import { BsMoonStars } from "react-icons/bs";
+import { BsMoonStarsFill } from "react-icons/bs";
+import { PiSunBold } from "react-icons/pi";
+import { IoSunny } from "react-icons/io5";
+
 
 
 export const ThemeBtn = () => {
+    const theme = useThemeStore((state) => state.theme);
+    const darkTheme = useThemeStore((state) => state.darkTheme);
+    const lightTheme = useThemeStore((state) => state.lightTheme);
 
-    const { theme, darkTheme, lightTheme } = useThemeStore((state) => ({
-        theme: state.theme,
-        darkTheme: state.darkTheme,
-        lightTheme: state.lightTheme
-    }));
 
     useEffect(() => {
         const htmlTree = document.querySelector("html");
@@ -29,10 +30,10 @@ export const ThemeBtn = () => {
 
     return (
         <button
-            className={`p-[0.8rem] duration-300 ease-linear`}
+            className={`text-[1.3rem] dark:text-[1.15rem] p-[0.8rem] duration-200 ease-linear ml-auto mr-1.5 md:mx-0`}
             onClick={handleTheme}
         >
-            {theme === "light" ? <FiSun />: <BsMoonStars />}
+            {theme === "light" ? <IoSunny />: <BsMoonStarsFill />}
         </button>
     );
 };

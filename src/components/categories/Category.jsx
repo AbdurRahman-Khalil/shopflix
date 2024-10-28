@@ -15,7 +15,7 @@ export const Category = ({ cat }) => {
 
     return (
         <motion.div
-            className="rounded-xl border border-neutral-300 max-w-full min-h-32"
+            className="rounded-xl border border-neutral-300 dark:border-neutral-800 max-w-full min-h-32"
             style={{
                 backgroundImage: `url(${cat.catImg})`,
                 backgroundSize: "cover",

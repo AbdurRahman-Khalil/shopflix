@@ -5,7 +5,7 @@ import { devtools } from "zustand/middleware";
 
 const themeStore = (set) => ({
 
-    theme: "dark",
+    theme: "light",
 
     darkTheme: () => {
         set(() => (

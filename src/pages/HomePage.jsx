@@ -4,6 +4,7 @@ import hp from "../assets/hero.png";
 
 
 export const HomePage = () => {
+
     return (
         <motion.section
             id="homepage"

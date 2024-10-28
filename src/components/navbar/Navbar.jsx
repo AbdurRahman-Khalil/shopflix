@@ -5,13 +5,14 @@ import { MenuLink } from "./MenuLink";
 
 import { CgMenuLeftAlt } from "react-icons/cg";
 import { IoClose } from "react-icons/io5";
+import { ThemeBtn } from "../ThemeBtn";
 
 
 
 export const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [staggerChildren, setStaggerChildren] = useState(false);
-    
+
     const menuRef = useRef(null);
     const menuButtonRef = useRef(null);
 
@@ -59,37 +60,34 @@ export const Navbar = () => {
 
     return (
         <nav className="flex items-center justify-between px-3.5 my-1 xl:mx-auto xl:container">
-            <Link to={"/"} className="text-[2.4rem] sm:text-[2.5rem] font-bold z-20">
+            <Link to={"/"} className="text-[2.4rem] sm:text-[2.5rem] font-bold dark:font-semibold z-20">
                 Shopflix
             </Link>
 
             {/* Larger screens */}
-            <ul className="hidden md:flex items-center gap-10">
-                <MenuLink
-                    destination={"/"}
-                    menuLinkText={"Home"}
-                    addStyles={"text-lg font-semibold"}
-                    activeStyles={"relative before:absolute before:-bottom-1 before:left-0 before:bg-rose-400/60 before:w-full before:h-[0.205rem] before:rounded-full"}
-                />
-                <MenuLink
-                    destination={"/products/all"}
-                    menuLinkText={"Products"}
-                    addStyles={"text-lg font-semibold"}
-                    activeStyles={"relative before:absolute before:-bottom-1 before:left-0 before:bg-rose-400/60 before:w-full before:h-[0.205rem] before:rounded-full"}
-                />
-                <MenuLink
-                    destination={"/about"}
-                    menuLinkText={"About"}
-                    addStyles={"text-lg font-semibold"}
-                    activeStyles={"relative before:absolute before:-bottom-1 before:left-0 before:bg-rose-400/60 before:w-full before:h-[0.205rem] before:rounded-full"}
-                />
-                <MenuLink
-                    destination={"/contact"}
-                    menuLinkText={"Contact"}
-                    addStyles={"text-lg font-semibold"}
-                    activeStyles={"relative before:absolute before:-bottom-1 before:left-0 before:bg-rose-400/60 before:w-full before:h-[0.205rem] before:rounded-full"}
-                />
-            </ul>
+            <>
+                <ul className="hidden md:flex items-center gap-10">
+                    <MenuLink
+                        destination={"/"}
+                        menuLinkText={"Home"}
+                        addStyles={"text-lg text-neutral-800 dark:text-neutral-100 font-semibold dark:font-medium"}
+                        activeStyles={"relative before:absolute before:-bottom-1 before:left-0 before:bg-rose-400/70 dark:before:bg-rose-400/95 before:w-full before:h-[0.205rem] before:rounded-full"}
+                    />
+                    <MenuLink
+                        destination={"/products/all"}
+                        menuLinkText={"Products"}
+                        addStyles={"text-lg text-neutral-800 dark:text-neutral-100 font-semibold dark:font-medium"}
+                        activeStyles={"relative before:absolute before:-bottom-1 before:left-0 before:bg-rose-400/70 dark:before:bg-rose-400/95 before:w-full before:h-[0.205rem] before:rounded-full"}
+                    />
+                    <MenuLink
+                        destination={"/about"}
+                        menuLinkText={"About"}
+                        addStyles={"text-lg text-neutral-800 dark:text-neutral-100 font-semibold dark:font-medium"}
+                        activeStyles={"relative before:absolute before:-bottom-1 before:left-0 before:bg-rose-400/70 dark:before:bg-rose-400/95 before:w-full before:h-[0.205rem] before:rounded-full"}
+                    />
+                </ul>
+                <ThemeBtn />
+            </>
 
             {/* Mobile */}
             <button
@@ -105,7 +103,7 @@ export const Navbar = () => {
                 className={`space-y-5 w-full text-end z-10 ${isMenuOpen
                     ? "opacity-100 translate-y-0 duration-300 ease-in-out"
                     : "opacity-0 -translate-y-5 pointer-events-none"
-                    } transition-all duration-300 ease-in-out absolute top-[4.5rem] right-0 bg-neutral-50 shadow-lg rounded-md px-5 py-7 md:hidden`}
+                    } transition-all duration-300 ease-in-out absolute top-[4.5rem] right-0 bg-neutral-50 dark:bg-neutral-900 shadow-lg rounded-md px-5 py-7 md:hidden`}
             >
                 <li
                     className={`${staggerChildren ? "delay-400 opacity-100 translate-x-0" : "opacity-0 translate-x-5"
@@ -114,8 +112,8 @@ export const Navbar = () => {
                     <MenuLink
                         destination={"/"}
                         menuLinkText={"Home"}
-                        addStyles={"text-xl font-semibold"}
-                        activeStyles={"relative before:absolute before:-bottom-1 before:left-0 before:bg-rose-400/60 before:w-full before:h-[0.205rem] before:rounded-full"}
+                        addStyles={"text-xl text-neutral-800 dark:text-neutral-100 font-semibold dark:font-medium"}
+                        activeStyles={"relative before:absolute before:-bottom-1 before:left-0 before:bg-rose-400/70 dark:before:bg-rose-400/95 before:w-full before:h-[0.205rem] before:rounded-full"}
                         onClick={closeMenu}
                     />
                 </li>
@@ -126,8 +124,8 @@ export const Navbar = () => {
                     <MenuLink
                         destination={"/products/all"}
                         menuLinkText={"Products"}
-                        addStyles={"text-xl font-semibold"}
-                        activeStyles={"relative before:absolute before:-bottom-1 before:left-0 before:bg-rose-400/60 before:w-full before:h-[0.205rem] before:rounded-full"}
+                        addStyles={"text-xl text-neutral-800 dark:text-neutral-100 font-semibold dark:font-medium"}
+                        activeStyles={"relative before:absolute before:-bottom-1 before:left-0 before:bg-rose-400/70 dark:before:bg-rose-400/95 before:w-full before:h-[0.205rem] before:rounded-full"}
                         onClick={closeMenu}
                     />
                 </li>
@@ -138,20 +136,8 @@ export const Navbar = () => {
                     <MenuLink
                         destination={"/about"}
                         menuLinkText={"About"}
-                        addStyles={"text-xl font-semibold"}
-                        activeStyles={"relative before:absolute before:-bottom-1 before:left-0 before:bg-rose-400/60 before:w-full before:h-[0.205rem] before:rounded-full"}
-                        onClick={closeMenu}
-                    />
-                </li>
-                <li
-                    className={`${staggerChildren ? "delay-300 opacity-100 translate-x-0" : "opacity-0 translate-x-5"
-                        } transition duration-300`}
-                >
-                    <MenuLink
-                        destination={"/contact"}
-                        menuLinkText={"Contact"}
-                        addStyles={"text-xl font-semibold"}
-                        activeStyles={"relative before:absolute before:-bottom-1 before:left-0 before:bg-rose-400/60 before:w-full before:h-[0.205rem] before:rounded-full"}
+                        addStyles={"text-xl text-neutral-800 dark:text-neutral-100 font-semibold dark:font-medium"}
+                        activeStyles={"relative before:absolute before:-bottom-1 before:left-0 before:bg-rose-400/70 dark:before:bg-rose-400/95 before:w-full before:h-[0.205rem] before:rounded-full"}
                         onClick={closeMenu}
                     />
                 </li>
