@@ -8,6 +8,10 @@
 
 
 @layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
     #homepage {
         background-image: url("./assets/bg.jpg");
         background-size: cover;

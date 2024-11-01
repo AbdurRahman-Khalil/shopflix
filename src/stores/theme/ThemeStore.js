@@ -7,6 +7,7 @@ const themeStore = (set) => ({
 
     theme: "light",
 
+    // Actions
     darkTheme: () => {
         set(() => (
             { theme: "dark" }
