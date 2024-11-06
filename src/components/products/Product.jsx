@@ -9,7 +9,6 @@ import generateSlug from "../../utils/generateSlug";
 import { FaHeart, FaRegHeart } from "react-icons/fa6";
 import { BsBookmarkPlus, BsBookmarkCheckFill } from "react-icons/bs";
 import { FaStar, FaRegStar } from "react-icons/fa";
-import { RiShareBoxLine } from "react-icons/ri";
 import { BsCart3 } from "react-icons/bs";
 
 
@@ -65,11 +64,15 @@ export const Product = ({ prod }) => {
             >
                 {prod.category}
             </p>
-            <div id="product-img" className="h-[300px] min-[405px]:h-[330px] min-[505px]:h-[360px] sm:h-[300px] min-[740px]:h-[330px] min-[900px]:h-[360px] lg:h-[300px] xl:h-[280px] overflow-hidden rounded-xl duration-200 ease-in-out">
-                <img src={prod.image} className="max-w-full min-h-full rounded-xl object-cover object-center hover:scale-105 duration-200 ease-in-out cursor-pointer" alt="" />
-            </div>
+            <Link to={`/products/${titleCaseCategory(prod.category)}/${sluggedTitle}`}>
+                <div id="product-img" className="h-[300px] min-[405px]:h-[330px] min-[505px]:h-[360px] sm:h-[300px] min-[740px]:h-[330px] min-[900px]:h-[360px] lg:h-[300px] xl:h-[280px] overflow-hidden rounded-xl duration-200 ease-in-out">
+                    <img src={prod.image} className="max-w-full min-h-full rounded-xl object-cover object-center hover:scale-105 duration-200 ease-in-out cursor-pointer" alt="" />
+                </div>
+            </Link>
             <div id="product-text" className="px-[0.37rem] dark:px-[0.4rem] mt-2">
-                <p className="text-[1.35rem] font-semibold dark:font-medium dark:tracking-wide line-clamp-1 cursor-pointer">{prod.title}</p>
+                <Link to={`/products/${titleCaseCategory(prod.category)}/${sluggedTitle}`}>
+                    <p className="text-[1.35rem] font-semibold dark:font-medium dark:tracking-wide line-clamp-1 cursor-pointer">{prod.title}</p>
+                </Link>
                 <div className="flex justify-between items-center mt-2.5 mb-1.5">
                     <p className="text-[1.08rem] font-semibold dark:font-medium tracking-wide">&#x24; <span className="-ml-[0.18rem]">{prod.price}</span></p>
                     <div className={`ratings flex items-center gap-[0.2rem]`}>
@@ -96,15 +99,11 @@ export const Product = ({ prod }) => {
                         })}
                     </div>
                 </div>
-                <p className="mb-[0.8rem] line-clamp-2 leading-5 text-[0.9rem] font-medium dark:font-normal dark:tracking-wide relative group">
-                    {prod.description}
-                    <Link
-                        to={`/products/${titleCaseCategory(prod.category)}/${sluggedTitle}`}
-                        className="absolute bottom-[0.05rem] right-[0.1rem] bg-neutral-50 dark:bg-neutral-900 p-[0.1rem] opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto duration-200 ease-linear ring-1 ring-neutral-900/20 dark:ring-neutral-50/20 rounded"
-                    >
-                        <RiShareBoxLine />
-                    </Link>
-                </p>
+                <Link to={`/products/${titleCaseCategory(prod.category)}/${sluggedTitle}`}>
+                    <p className="mb-[0.8rem] line-clamp-2 leading-5 text-[0.9rem] font-medium dark:font-normal dark:tracking-wide relative group">
+                        {prod.description}
+                    </p>
+                </Link>
 
                 <div className="flex justify-between items-center gap-5 mt-[0.85rem] mb-[0.5rem] text-[1.25rem]">
                     <motion.button
