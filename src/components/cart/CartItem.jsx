@@ -1,8 +1,7 @@
 import useProductStore from "../../stores/products/ProductStore";
 
 import { IoClose } from "react-icons/io5";
-import { FaPlus } from "react-icons/fa6";
-import { FaMinus } from "react-icons/fa6";
+import { FaPlus, FaMinus } from "react-icons/fa6";
 
 
 
@@ -15,7 +14,7 @@ export const CartItem = ({ item }) => {
     return (
         <div className="relative p-[0.3rem] border-2 border-neutral-900/25 dark:border-neutral-50/20 rounded-2xl sm:rounded-xl duration-200 ease-linear">
             <div className="flex flex-col gap-2.5 sm:gap-3.5 sm:flex-row">
-                <div className="max-w-full min-h-full sm:max-w-[10.5rem] sm:min-h-[10.5rem]">
+                <div className="max-w-full min-h-full sm:max-w-[10.5rem] sm:min-h-[10.5rem] rounded-xl sm:rounded-lg">
                     <img src={item.image} className="max-w-full h-auto aspect-square object-cover object-center rounded-xl sm:rounded-lg" alt="" />
                 </div>
                 <div className="flex flex-col justify-between gap-4 mx-1.5 sm:mx-0 sm:my-3 max-w-[100%] sm:max-w-[58%]">

@@ -2,10 +2,11 @@ import { Route, Routes } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 
 import { Navbar } from "./components/navbar/Navbar";
-import { HomePage } from "./pages/HomePage";
-import { Products } from "./pages/Products";
-import { ProductsSection } from "./components/products/ProductsSection";
 import { Cart } from "./pages/Cart";
+import { HomePage } from "./pages/HomePage";
+import { ProductsSection } from "./components/products/ProductsSection";
+import { Products } from "./pages/Products";
+import { ProductPage } from "./pages/ProductPage";
 
 
 
@@ -19,19 +20,22 @@ export const App = () => {
           <Navbar />
         </header>
 
-        <main>
+        <main className="overflow-hidden">
           <Routes>
+
             <Route path="/" element={<HomePage />} />
+
             <Route path="/products" element={<Products />}>
               <Route path="/products/:category" element={<ProductsSection />} />
             </Route>
+            <Route path="/products/:category/:slug" element={<ProductPage />} />
+
             <Route path="/cart" element={<Cart />} />
+
           </Routes>
         </main>
 
-        <footer>
-        
-        </footer>
+        <footer></footer>
       </div>
     </>
   );

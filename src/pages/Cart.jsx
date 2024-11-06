@@ -43,7 +43,7 @@ export const Cart = () => {
 
     return (
         <>
-            <section className="mt-10 mb-[7rem] px-5 md:px-10 lg:max-[1200px]:mx-auto lg:max-[1200px]:container xl:mx-auto xl:container duration-200 ease-linear">
+            <section className="mt-[6rem] mb-[7rem] px-5 md:px-10 lg:max-[1200px]:mx-auto lg:max-[1200px]:container xl:mx-auto xl:container duration-200 ease-linear">
                 <h2 className="text-2xl font-semibold dark:font-medium dark:tracking-wide text-center mb-5">YOUR CART</h2>
                 <motion.div
                     className="grid grid-cols-1 min-[500px]:grid-cols-2 sm:grid-cols-1 min-[1201px]:grid-cols-2 gap-[0.85rem] min-[500px]:gap-[0.7rem] sm:gap-3"

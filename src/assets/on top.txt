@@ -1,0 +1,63 @@
+In React Router, when using nested routes, if you want both ProductsSection and ProductPage to be displayed at the same time (instead of one replacing the other), you’ll need to make some adjustments. Here’s how you can set it up:
+
+Solution 1: Reorganize Route Structure with a Parent Layout Component
+The key is to separate ProductsSection and ProductPage so they are displayed as siblings within the Products component. You can use an intermediate layout component that renders ProductsSection and Outlet together.
+
+Define a ProductsLayout Component:
+
+javascript
+Copy code
+import { Outlet } from "react-router-dom";
+
+function ProductsLayout() {
+  return (
+    <div>
+      {/* Always display ProductsSection */}
+      <ProductsSection />
+
+      {/* Render nested routes like ProductPage */}
+      <Outlet />
+    </div>
+  );
+}
+
+export default ProductsLayout;
+Update the Routes: With this approach, ProductsSection will always be visible when you navigate to any nested route under /products.
+
+javascript
+Copy code
+import { Route, Routes } from "react-router-dom";
+import Products from "./Products";
+import ProductsSection from "./ProductsSection";
+import ProductPage from "./ProductPage";
+import ProductsLayout from "./ProductsLayout";
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/products" element={<Products />}>
+        <Route element={<ProductsLayout />}>
+          <Route path="" element={<ProductsSection />} /> {/* Default /products route */}
+          <Route path=":category" element={<ProductsSection />} />
+          <Route path=":category/:slug" element={<ProductPage />} />
+        </Route>
+      </Route>
+    </Routes>
+  );
+}
+
+export default App;
+Explanation
+ProductsLayout component will always render ProductsSection.
+By placing ProductPage as a child under ProductsLayout, it will render alongside ProductsSection instead of replacing it.
+
+
+
+
+
+
+
+
+
+
+

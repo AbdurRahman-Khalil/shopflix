@@ -65,38 +65,41 @@ export const Navbar = () => {
 
 
     return (
-        <nav className="flex items-center justify-between px-3.5 my-1 xl:mx-auto xl:container">
-            <Link to={"/"} className="text-[2.4rem] sm:text-[2.5rem] font-bold dark:font-semibold z-20">
+        <nav className="fixed top-0 left-3 right-3 z-10 flex items-center justify-between bg-neutral-50/40 dark:bg-neutral-900/50 backdrop-blur-[70px] ring-1 ring-neutral-900/15 dark:ring-neutral-50/20 rounded-xl max-w-[100%] pl-[0.82rem] pr-[0.6rem] md:pr-[0.91rem] my-1.5 pt-[0.125rem] pb-[0.5rem] ">
+            <Link to={"/"} className="text-[2.4rem] font-bold z-20">
                 Shopflix
             </Link>
 
             {/* Larger screens */}
             <>
-                <ul className="hidden md:flex items-center gap-10">
+                <ul className="hidden md:flex items-center gap-10 mt-[0.22rem]">
                     <MenuLink
                         destination={"/"}
                         menuLinkText={"Home"}
-                        addStyles={"text-lg text-neutral-800 dark:text-neutral-100 font-semibold dark:font-normal"}
+                        addStyles={"text-lg text-neutral-800 dark:text-neutral-100 font-semibold dark:font-medium tracking-wide"}
                         activeStyles={"relative before:absolute before:-bottom-1 before:left-0 before:bg-rose-400/70 dark:before:bg-rose-400/95 before:w-full before:h-[0.205rem] before:rounded-full"}
                     />
                     <MenuLink
                         destination={"/products/all"}
                         menuLinkText={"Products"}
-                        addStyles={"text-lg text-neutral-800 dark:text-neutral-100 font-semibold dark:font-normal"}
+                        addStyles={"text-lg text-neutral-800 dark:text-neutral-100 font-semibold dark:font-medium tracking-wide"}
                         activeStyles={"relative before:absolute before:-bottom-1 before:left-0 before:bg-rose-400/70 dark:before:bg-rose-400/95 before:w-full before:h-[0.205rem] before:rounded-full"}
                     />
                     <MenuLink
                         destination={"/about"}
                         menuLinkText={"About"}
-                        addStyles={"text-lg text-neutral-800 dark:text-neutral-100 font-semibold dark:font-normal"}
+                        addStyles={"text-lg text-neutral-800 dark:text-neutral-100 font-semibold dark:font-medium tracking-wide"}
                         activeStyles={"relative before:absolute before:-bottom-1 before:left-0 before:bg-rose-400/70 dark:before:bg-rose-400/95 before:w-full before:h-[0.205rem] before:rounded-full"}
                     />
                 </ul>
-                <div className="flex justify-center items-center gap-[0.2rem] ml-auto mr-[1.65rem] md:ml-0 md:mr-1">
-                    <ThemeBtn hideSeek={"max-[359px]:hidden min-[360px]:p-[0.8rem]"} />
-                    <Link to={"/cart"} className="relative">
+                <div className="flex justify-center items-center gap-[0.35rem] dark:gap-[0.55rem] ml-auto mr-[1.35rem] md:ml-0 md:mr-1 mt-[0.2rem]">
+                    <ThemeBtn hideSeek={"max-[395px]:hidden min-[396px]:p-[0.8rem]"} />
+                    <Link to={"/cart"} className="relative max-[359px]:hidden">
                         <BsCart3 className="text-[1.5rem]" />
-                        <p className={`absolute -top-3.5 -right-3.5 z-10 text-[0.75rem] text-emerald-600 dark:text-emerald-400 font-semibold tracking-wide ${cartLength >= 10 ? "w-[1.6rem] h-[1.6rem]" : "w-[1.48rem] h-[1.48rem]"} flex items-center justify-center bg-neutral-900/10 dark:bg-neutral-50/10 backdrop-blur-[8px] rounded-full`}>
+                        <p className={`absolute -top-3.5 -right-3.5 z-10 text-[0.75rem] text-emerald-600 dark:text-emerald-400 font-semibold tracking-wide 
+                            ${cartLength >= 10 ? "w-[1.6rem] h-[1.6rem]" : "w-[1.48rem] h-[1.48rem]"} 
+                            flex items-center justify-center bg-neutral-50/90 dark:bg-neutral-900/90 ring-1 ring-neutral-900/15 dark:ring-neutral-50/30 rounded-full`}
+                        >
                             {cartLength}
                         </p>
                     </Link>
@@ -106,7 +109,7 @@ export const Navbar = () => {
             {/* Mobile */}
             <button
                 ref={menuButtonRef}
-                className={`md:hidden cursor-pointer space-y-2 z-20 transform transition-transform duration-300 ${isMenuOpen ? "rotate-90" : ""}`}
+                className={`md:hidden mt-[0.2rem] cursor-pointer space-y-2 z-20 transform transition-transform duration-300 ${isMenuOpen ? "rotate-90" : ""}`}
                 onClick={toggleMenu}
             >
                 {isMenuOpen ? <IoClose className="text-[2.3rem] transition-all duration-300" /> : <CgMenuLeftAlt className="text-4xl rotate-180 transition-all duration-300" />}
@@ -114,11 +117,22 @@ export const Navbar = () => {
 
             <ul
                 ref={menuRef}
-                className={`space-y-5 w-full text-end z-10 ${isMenuOpen
+                className={`space-y-6 w-full text-end z-10 ${isMenuOpen
                     ? "opacity-100 translate-y-0 duration-300 ease-in-out"
                     : "opacity-0 -translate-y-5 pointer-events-none"
-                    } transition-all duration-300 ease-in-out absolute top-[4.5rem] right-0 bg-neutral-50 dark:bg-neutral-900 shadow-lg rounded-md px-5 py-7 md:hidden`}
+                    } transition-all duration-300 ease-in-out absolute top-[4.7rem] right-0 
+                    bg-neutral-50 dark:bg-neutral-900 ring-1 ring-neutral-900/15 dark:ring-neutral-50/20 rounded-lg shadow-lg px-5 pt-8 pb-3.5 md:hidden
+                    `}
             >
+                {/* <Link to={"/cart"} className="relative min-[360px]:hidden ml-auto">
+                    <BsCart3 className="text-[1.5rem]" />
+                    <p className={`absolute -top-3.5 -right-3.5 z-10 text-[0.75rem] text-emerald-600 dark:text-emerald-400 font-semibold tracking-wide 
+                            ${cartLength >= 10 ? "w-[1.6rem] h-[1.6rem]" : "w-[1.48rem] h-[1.48rem]"} 
+                            flex items-center justify-center bg-neutral-50/90 dark:bg-neutral-900/90 ring-1 ring-neutral-900/15 dark:ring-neutral-50/30 rounded-full`}
+                    >
+                        {cartLength}
+                    </p>
+                </Link> */}
                 <li
                     className={`${staggerChildren ? "delay-400 opacity-100 translate-x-0" : "opacity-0 translate-x-5"
                         } transition duration-300`}
@@ -126,7 +140,7 @@ export const Navbar = () => {
                     <MenuLink
                         destination={"/"}
                         menuLinkText={"Home"}
-                        addStyles={"text-xl text-neutral-800 dark:text-neutral-100 font-semibold dark:font-normal"}
+                        addStyles={"text-xl text-neutral-800 dark:text-neutral-100 font-semibold dark:font-medium tracking-wide"}
                         activeStyles={"relative before:absolute before:-bottom-1 before:left-0 before:bg-rose-400/70 dark:before:bg-rose-400/95 before:w-full before:h-[0.205rem] before:rounded-full"}
                         onClick={closeMenu}
                     />
@@ -138,7 +152,7 @@ export const Navbar = () => {
                     <MenuLink
                         destination={"/products/all"}
                         menuLinkText={"Products"}
-                        addStyles={"text-xl text-neutral-800 dark:text-neutral-100 font-semibold dark:font-normal"}
+                        addStyles={"text-xl text-neutral-800 dark:text-neutral-100 font-semibold dark:font-medium tracking-wide"}
                         activeStyles={"relative before:absolute before:-bottom-1 before:left-0 before:bg-rose-400/70 dark:before:bg-rose-400/95 before:w-full before:h-[0.205rem] before:rounded-full"}
                         onClick={closeMenu}
                     />
@@ -150,7 +164,7 @@ export const Navbar = () => {
                     <MenuLink
                         destination={"/about"}
                         menuLinkText={"About"}
-                        addStyles={"text-xl text-neutral-800 dark:text-neutral-100 font-semibold dark:font-normal"}
+                        addStyles={"text-xl text-neutral-800 dark:text-neutral-100 font-semibold dark:font-medium tracking-wide"}
                         activeStyles={"relative before:absolute before:-bottom-1 before:left-0 before:bg-rose-400/70 dark:before:bg-rose-400/95 before:w-full before:h-[0.205rem] before:rounded-full"}
                         onClick={closeMenu}
                     />
@@ -159,7 +173,7 @@ export const Navbar = () => {
                     className={`${staggerChildren ? "delay-300 opacity-100 translate-x-0" : "opacity-0 translate-x-5"
                         } transition duration-300`}
                 >
-                    <ThemeBtn hideSeek={"min-[360px]:hidden ml-auto pt-2"} />
+                    <ThemeBtn hideSeek={"min-[396px]:hidden ml-auto pt-2 pb-5 dark:pb-6"} />
                 </li>
             </ul>
         </nav>

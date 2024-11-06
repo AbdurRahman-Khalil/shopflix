@@ -70,7 +70,7 @@ export const Categories = () => {
         <div
             id="categories"
             ref={ref}
-            className="mt-[2rem] mb-[3.75rem]"
+            className="mt-[5.8rem] mb-[3.5rem]"
         >
             <h2 className="text-[2rem] text-neutral-800 dark:text-neutral-100 font-semibold dark:font-medium mb-10 relative after:absolute after:-bottom-1.5 after:left-0 after:bg-neutral-800 dark:after:bg-neutral-100 after:h-[0.2rem] after:w-[6.5rem] after:rounded-full">
                 Top Category

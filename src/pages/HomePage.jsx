@@ -11,7 +11,7 @@ export const HomePage = () => {
             initial={{ scale: 0.6, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1.2, delay: 0.2, ease: "anticipate" }}
-            className="mt-3 mx-3 rounded-xl h-fit sm:h-[540px]"
+            className="mt-[5.5rem] mx-3 rounded-xl h-fit sm:h-[540px]"
         >
             <motion.div
                 initial={{ opacity: 0 }}
