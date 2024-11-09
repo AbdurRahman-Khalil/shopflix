@@ -10,7 +10,8 @@ import { ThemeBtn } from "../ThemeBtn";
 import { CgMenuLeftAlt } from "react-icons/cg";
 import { IoClose } from "react-icons/io5";
 import { BsCart3 } from "react-icons/bs";
-
+import { TbBasketHeart } from "react-icons/tb";
+import { BiBookHeart } from "react-icons/bi"
 
 
 export const Navbar = () => {
@@ -65,7 +66,7 @@ export const Navbar = () => {
 
 
     return (
-        <nav className="fixed top-0 left-3 right-3 z-10 flex items-center justify-between bg-neutral-50/40 dark:bg-neutral-900/50 backdrop-blur-[70px] ring-1 ring-neutral-900/15 dark:ring-neutral-50/20 rounded-xl max-w-[100%] pl-[0.82rem] pr-[0.6rem] md:pr-[0.91rem] my-1.5 pt-[0.125rem] pb-[0.5rem] ">
+        <nav className="fixed top-0 left-3 right-3 z-10 flex items-center justify-between bg-neutral-50/40 dark:bg-neutral-900/50 backdrop-blur-[70px] ring-1 ring-neutral-900/15 dark:ring-neutral-50/20 rounded-xl max-w-[100%] pl-[0.82rem] pr-[0.58rem] md:pr-[0.86rem] md:dark:pr-[0.92rem] my-1.5 pt-[0.125rem] pb-[0.5rem]">
             <Link to={"/"} className="text-[2.4rem] font-bold z-20">
                 Shopflix
             </Link>
@@ -85,15 +86,11 @@ export const Navbar = () => {
                         addStyles={"text-lg text-neutral-800 dark:text-neutral-100 font-semibold dark:font-medium tracking-wide"}
                         activeStyles={"relative before:absolute before:-bottom-1 before:left-0 before:bg-rose-400/70 dark:before:bg-rose-400/95 before:w-full before:h-[0.205rem] before:rounded-full"}
                     />
-                    <MenuLink
-                        destination={"/about"}
-                        menuLinkText={"About"}
-                        addStyles={"text-lg text-neutral-800 dark:text-neutral-100 font-semibold dark:font-medium tracking-wide"}
-                        activeStyles={"relative before:absolute before:-bottom-1 before:left-0 before:bg-rose-400/70 dark:before:bg-rose-400/95 before:w-full before:h-[0.205rem] before:rounded-full"}
-                    />
                 </ul>
-                <div className="flex justify-center items-center gap-[0.35rem] dark:gap-[0.55rem] ml-auto mr-[1.35rem] md:ml-0 md:mr-1 mt-[0.2rem]">
-                    <ThemeBtn hideSeek={"max-[395px]:hidden min-[396px]:p-[0.8rem]"} />
+                <div className="flex justify-center items-center gap-[1.15rem] dark:gap-[1.27rem] mt-[0.2rem] ml-auto mr-[1.15rem] dark:mr-[1.25rem] md:mx-0 md:dark:mx-0">
+                    <Link to={"/liked_products"} className="max-[399px]:hidden">
+                        <BiBookHeart className="text-[1.55rem] text-red-500/85 dark:text-red-400" />
+                    </Link>
                     <Link to={"/cart"} className="relative max-[359px]:hidden">
                         <BsCart3 className="text-[1.5rem]" />
                         <p className={`absolute -top-3.5 -right-3.5 z-10 text-[0.75rem] text-emerald-600 dark:text-emerald-400 font-semibold tracking-wide 
@@ -103,6 +100,7 @@ export const Navbar = () => {
                             {cartLength}
                         </p>
                     </Link>
+                    <ThemeBtn hideSeek={"max-[450px]:hidden min-[451px]:pl-[0.6rem]"} />
                 </div>
             </>
 
@@ -161,19 +159,16 @@ export const Navbar = () => {
                     className={`${staggerChildren ? "delay-200 opacity-100 translate-x-0" : "opacity-0 translate-x-5"
                         } transition duration-300`}
                 >
-                    <MenuLink
-                        destination={"/about"}
-                        menuLinkText={"About"}
-                        addStyles={"text-xl text-neutral-800 dark:text-neutral-100 font-semibold dark:font-medium tracking-wide"}
-                        activeStyles={"relative before:absolute before:-bottom-1 before:left-0 before:bg-rose-400/70 dark:before:bg-rose-400/95 before:w-full before:h-[0.205rem] before:rounded-full"}
-                        onClick={closeMenu}
-                    />
+                    <ThemeBtn hideSeek={"min-[451px]:hidden ml-auto pt-2"} />
                 </li>
+
                 <li
                     className={`${staggerChildren ? "delay-300 opacity-100 translate-x-0" : "opacity-0 translate-x-5"
                         } transition duration-300`}
                 >
-                    <ThemeBtn hideSeek={"min-[396px]:hidden ml-auto pt-2 pb-5 dark:pb-6"} />
+                    <Link to={"/liked_products"} onClick={closeMenu}>
+                        <BiBookHeart className="text-[1.55rem] text-red-500/85 dark:text-red-400 min-[400px]:hidden ml-auto -mr-0.5 mb-5" />
+                    </Link>
                 </li>
             </ul>
         </nav>

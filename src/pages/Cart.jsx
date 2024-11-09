@@ -43,8 +43,8 @@ export const Cart = () => {
 
     return (
         <>
-            <section className="mt-[6rem] mb-[7rem] px-5 md:px-10 lg:max-[1200px]:mx-auto lg:max-[1200px]:container xl:mx-auto xl:container duration-200 ease-linear">
-                <h2 className="text-2xl font-semibold dark:font-medium dark:tracking-wide text-center mb-5">YOUR CART</h2>
+            <section className="mt-[6.35rem] mb-[10rem] px-5 md:px-10 lg:max-[1200px]:mx-auto lg:max-[1200px]:container xl:mx-auto xl:container duration-200 ease-linear">
+                <h2 className="text-2xl font-semibold dark:font-medium dark:tracking-wide text-center mb-[1.35rem]">YOUR CART</h2>
                 <motion.div
                     className="grid grid-cols-1 min-[500px]:grid-cols-2 sm:grid-cols-1 min-[1201px]:grid-cols-2 gap-[0.85rem] min-[500px]:gap-[0.7rem] sm:gap-3"
                     initial="hidden"
@@ -59,13 +59,14 @@ export const Cart = () => {
                                 </motion.div>
                             ))
                         ) : (
-                            <div className="col-span-2 my-32 max-w-fit mx-auto">
-                                <p className="text-[1.4rem] font-semibold dark:font-medium dark:tracking-wide mb-2">
+                            <div className="col-span-2 my-[7.6rem] text-center text-neutral-600 dark:text-neutral-300">
+                                <p className="text-[1.4rem] leading-[1.875rem] font-semibold dark:font-medium dark:tracking-wide mb-3.5">
                                     Your cart is empty.
                                 </p>
                                 <Link
                                     to={"/products/all"}
-                                    className="text-[1.1rem] font-medium dark:font-normal dark:tracking-wide flex justify-center items-center gap-2"
+                                    className="max-w-fit mx-auto text-[1.05rem] font-medium dark:font-normal dark:tracking-wide flex justify-center items-center gap-1.5
+                                    hover:underline underline-offset-2"
                                 >
                                     <span>Shop now</span>
                                     <BsCart3 className="text-[1.18rem]" />

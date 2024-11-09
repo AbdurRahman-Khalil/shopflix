@@ -7,6 +7,7 @@ import { HomePage } from "./pages/HomePage";
 import { ProductsSection } from "./components/products/ProductsSection";
 import { Products } from "./pages/Products";
 import { ProductPage } from "./pages/ProductPage";
+import { LikedProducts } from "./pages/LikedProducts";
 
 
 
@@ -29,6 +30,7 @@ export const App = () => {
               <Route path="/products/:category" element={<ProductsSection />} />
             </Route>
             <Route path="/products/:category/:slug" element={<ProductPage />} />
+            <Route path="/liked_products" element={<LikedProducts />} />
 
             <Route path="/cart" element={<Cart />} />
 

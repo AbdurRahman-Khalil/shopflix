@@ -2,11 +2,15 @@ import { useState } from "react";
 
 import { useNavigate, useParams } from "react-router-dom";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 import useProductStore from "../stores/products/ProductStore";
 
 import generateSlug from "../utils/generateSlug";
+import formateDate from "../utils/formateDate";
+import generateUserId from "../utils/generateUserId";
+
+import likeAnimationVariants from "../animations/likeAnimation";
 
 import { FaStar, FaRegStar } from "react-icons/fa";
 import { BsCart3 } from "react-icons/bs";
@@ -18,30 +22,48 @@ import { MdKeyboardBackspace } from "react-icons/md";
 
 export const ProductPage = () => {
     const products = useProductStore((state) => state.products);
+    const likedProducts = useProductStore((state) => state.likedProducts);
     const addToCart = useProductStore((state) => state.addToCart);
+    const likeProduct = useProductStore((state) => state.likeProduct);
+    const unLikeProduct = useProductStore((state) => state.unLikeProduct);
 
-    const [heart, setHeart] = useState(false);
     const [wishlist, setWishlist] = useState(false);
 
     const { slug } = useParams();
+    const navigate = useNavigate();
 
     const openedProduct = products.find(product => generateSlug(product.title) === slug);
 
-    const handleClick = () => {
+    const handleAddToCart = () => {
         const newItem = {
             id: openedProduct.id,
             title: openedProduct.title,
             category: openedProduct.category,
             price: openedProduct.price,
-            totalPrice: openedProduct.price,
+            totalPrice: openedProduct.totalPrice,
             image: openedProduct.image,
-            quantity: 1
+            quantity: openedProduct.quantity,
         };
 
         addToCart(newItem);
     }
 
-    const navigate = useNavigate();
+    const randomUserId = generateUserId();
+    const formattedDate = formateDate();
+
+    const handleLike = () => {
+        const newItem = {
+            id: openedProduct.id,
+            title: openedProduct.title,
+            price: openedProduct.price,
+            image: openedProduct.image,
+            category: openedProduct.category,
+            likedBy: randomUserId,
+            likedAt: formattedDate,
+        };
+
+        likeProduct(newItem);
+    };
 
 
     return (
@@ -94,33 +116,55 @@ export const ProductPage = () => {
                             </p>
                         </div>
 
-                        <div className="flex flex-col items-start gap-1.5 sm:flex-row sm:items-center justify-between mt-3.5 sm:mt-[1.8rem] mb-6 lg:mb-0">
+                        <div className="flex flex-col items-start gap-2 sm:flex-row sm:items-center justify-between mt-4 sm:mt-[1.8rem] mb-6 lg:mb-0">
                             <p className="sm:mb-0.5 text-[2.3rem] sm:text-[2.6rem] lg:text-[2.7rem] font-semibold dark:font-medium dark:tracking-wide">&#x24;<span className="ml-[0.15rem] text-[1.9rem] sm:text-[2.2rem] lg:text-[2.3rem]">{openedProduct.price}</span></p>
-                            <div className="flex gap-1.5 sm:gap-2">
+                            <div className="flex gap-2">
                                 <motion.button
-                                    onClick={handleClick}
+                                    onClick={handleAddToCart}
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.95 }}
-                                    className="w-[10.3rem] sm:w-[13rem] lg:max-[1060px]:w-[11.5rem] bg-emerald-400 dark:bg-emerald-500 flex items-center justify-center gap-1.5 text-neutral-50 text-[1.1rem] font-medium tracking-wider py-3 rounded-xl transition-colors duration-200 ease-in-out"
+                                    className="w-[10.15rem] sm:w-[13rem] lg:max-[1060px]:w-[11.5rem] bg-emerald-400 dark:bg-emerald-500 flex items-center justify-center gap-1.5 text-neutral-50 text-[1.1rem] font-medium tracking-wider py-3 rounded-xl transition-colors duration-200 ease-in-out"
                                 >
                                     <span>Add to</span>
                                     <BsCart3 className="text-[1.2rem]" />
                                 </motion.button>
                                 <motion.button
-                                    onClick={() => setHeart(() => !heart)}
-                                    whileHover={{ scale: 1.12 }}
                                     whileTap={{ scale: 0.95 }}
-                                    className="text-[1.2rem] bg-red-100 px-4 pt-3 pb-3.5 rounded-xl"
+                                    className="text-[1.4rem] text-red-500 bg-red-100 px-3.5 pb-[0.08rem] rounded-xl"
                                 >
-                                    {
-                                        heart ? <FaHeart className="text-red-500" /> : <FaRegHeart className="text-red-500" />
-                                    }
+                                    <AnimatePresence mode="wait">
+                                        {likedProducts.find((item) => item.id === openedProduct.id) ? (
+                                            <motion.div
+                                                role="button"
+                                                onClick={() => unLikeProduct(openedProduct.id)}
+                                                key="liked"
+                                                initial="initial"
+                                                animate="liked"
+                                                exit="exit"
+                                                variants={likeAnimationVariants}
+                                            >
+                                                <FaHeart />
+                                            </motion.div>
+                                        ) : (
+                                            <motion.div
+                                                role="button"
+                                                onClick={handleLike}
+                                                key="unliked"
+                                                initial="initial"
+                                                animate="unliked"
+                                                exit="exit"
+                                                variants={likeAnimationVariants}
+                                            >
+                                                <FaRegHeart />
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
                                 </motion.button>
                                 <motion.button
                                     onClick={() => setWishlist(() => !wishlist)}
                                     whileHover={{ scale: 1.12 }}
                                     whileTap={{ scale: 0.95 }}
-                                    className="text-[1.2rem] bg-sky-100 px-4 pt-3 pb-3.5 rounded-xl"
+                                    className="text-[1.4rem] bg-sky-100 px-3.5 rounded-xl"
                                 >
                                     {
                                         wishlist ? <BsBookmarkCheckFill className="text-sky-500 dark:text-cyan-500" /> : <BsBookmarkPlus className="text-sky-500 dark:text-cyan-500" />

@@ -1,10 +1,15 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 import useProductStore from "../../stores/products/ProductStore";
 
 import generateSlug from "../../utils/generateSlug";
+import genSmallCaseCategory from "../../utils/genSmallCaseCategory";
+import generateUserId from "../../utils/generateUserId";
+import formateDate from "../../utils/formateDate";
+
+import likeAnimationVariants from "../../animations/likeAnimation";
 
 import { FaHeart, FaRegHeart } from "react-icons/fa6";
 import { BsBookmarkPlus, BsBookmarkCheckFill } from "react-icons/bs";
@@ -14,30 +19,46 @@ import { BsCart3 } from "react-icons/bs";
 
 
 export const Product = ({ prod }) => {
+    const likedProducts = useProductStore((state) => state.likedProducts);
     const addToCart = useProductStore((state) => state.addToCart);
+    const likeProduct = useProductStore((state) => state.likeProduct);
+    const unLikeProduct = useProductStore((state) => state.unLikeProduct);
 
-    const [heart, setHeart] = useState(false);
     const [wishlist, setWishlist] = useState(false);
 
-    const handleClick = () => {
+    const handleAddToCart = () => {
         const newItem = {
             id: prod.id,
             title: prod.title,
             category: prod.category,
             price: prod.price,
-            totalPrice: prod.price,
+            totalPrice: prod.totalPrice,
             image: prod.image,
-            quantity: 1
+            quantity: prod.quantity
         };
 
         addToCart(newItem);
-    }
+    };
 
     const sluggedTitle = generateSlug(prod.title);
+    const smallCasedCategory = genSmallCaseCategory(prod.category);
 
-    const titleCaseCategory = (title) => (
-        title.replace(/-/g, ' ').replace(/\w\S*/g, (word) => word.charAt(0).toLowerCase() + word.substring(1).toLowerCase())
-    );
+    const randomUserId = generateUserId();
+    const formattedDate = formateDate();
+
+    const handleLike = () => {
+        const newItem = {
+            id: prod.id,
+            title: prod.title,
+            price: prod.price,
+            image: prod.image,
+            category: prod.category,
+            likedBy: randomUserId,
+            likedAt: formattedDate,
+        };
+
+        likeProduct(newItem);
+    };
 
 
     return (
@@ -64,13 +85,13 @@ export const Product = ({ prod }) => {
             >
                 {prod.category}
             </p>
-            <Link to={`/products/${titleCaseCategory(prod.category)}/${sluggedTitle}`}>
+            <Link to={`/products/${smallCasedCategory}/${sluggedTitle}`}>
                 <div id="product-img" className="h-[300px] min-[405px]:h-[330px] min-[505px]:h-[360px] sm:h-[300px] min-[740px]:h-[330px] min-[900px]:h-[360px] lg:h-[300px] xl:h-[280px] overflow-hidden rounded-xl duration-200 ease-in-out">
                     <img src={prod.image} className="max-w-full min-h-full rounded-xl object-cover object-center hover:scale-105 duration-200 ease-in-out cursor-pointer" alt="" />
                 </div>
             </Link>
             <div id="product-text" className="px-[0.37rem] dark:px-[0.4rem] mt-2">
-                <Link to={`/products/${titleCaseCategory(prod.category)}/${sluggedTitle}`}>
+                <Link to={`/products/${smallCasedCategory}/${sluggedTitle}`}>
                     <p className="text-[1.35rem] font-semibold dark:font-medium dark:tracking-wide line-clamp-1 cursor-pointer">{prod.title}</p>
                 </Link>
                 <div className="flex justify-between items-center mt-2.5 mb-1.5">
@@ -99,22 +120,42 @@ export const Product = ({ prod }) => {
                         })}
                     </div>
                 </div>
-                <Link to={`/products/${titleCaseCategory(prod.category)}/${sluggedTitle}`}>
+                <Link to={`/products/${smallCasedCategory}/${sluggedTitle}`}>
                     <p className="mb-[0.8rem] line-clamp-2 leading-5 text-[0.9rem] font-medium dark:font-normal dark:tracking-wide relative group">
                         {prod.description}
                     </p>
                 </Link>
 
                 <div className="flex justify-between items-center gap-5 mt-[0.85rem] mb-[0.5rem] text-[1.25rem]">
-                    <motion.button
-                        onClick={() => setHeart(() => !heart)}
-                        whileHover={{ scale: 1.12 }}
-                        whileTap={{ scale: 0.95 }}
-                    >
-                        {
-                            heart ? <FaHeart className="text-red-500" /> : <FaRegHeart className="text-red-500" />
-                        }
-                    </motion.button>
+                    <button className="text-red-500">
+                        <AnimatePresence mode="wait">
+                            {likedProducts.find((item) => item.id === prod.id) ? (
+                                <motion.div
+                                    role="button"
+                                    onClick={() => unLikeProduct(prod.id)}
+                                    key="liked"
+                                    initial="initial"
+                                    animate="liked"
+                                    exit="exit"
+                                    variants={likeAnimationVariants}
+                                >
+                                    <FaHeart />
+                                </motion.div>
+                            ) : (
+                                <motion.div
+                                    role="button"
+                                    onClick={handleLike}
+                                    key="unliked"
+                                    initial="initial"
+                                    animate="unliked"
+                                    exit="exit"
+                                    variants={likeAnimationVariants}
+                                >
+                                    <FaRegHeart />
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+                    </button>
                     <motion.button
                         onClick={() => setWishlist(() => !wishlist)}
                         whileHover={{ scale: 1.12 }}
@@ -125,7 +166,7 @@ export const Product = ({ prod }) => {
                         }
                     </motion.button>
                     <motion.button
-                        onClick={handleClick}
+                        onClick={handleAddToCart}
                         whileHover={{ scale: 1.05 }}  // Slight scale and color change on hover
                         whileTap={{ scale: 0.95 }}  // Slightly shrink on click
                         className="bg-emerald-400 dark:bg-emerald-500 flex items-center justify-center gap-1.5 text-neutral-50 tracking-wide text-[1.08rem] flex-1 px-3.5 pt-2 pb-[0.55rem] rounded-lg transition-colors duration-200 ease-in-out"
@@ -140,3 +181,25 @@ export const Product = ({ prod }) => {
 };
 
 
+
+
+
+
+
+
+
+{/* {
+                            likedProducts.find((item) => item.id === prod.id) ? (
+                                isLiking ? (
+                                    <motion.img
+                                        src={like_animate}
+                                        alt="Liking animation"
+                                        className="w-6 h-6 object-cover object-center"
+                                    />
+                                ) : (
+                                    <FaHeart onClick={() => unLikeProduct(prod.id)} className="text-red-500" />
+                                )
+                            ) : (
+                                <FaRegHeart onClick={handleLike} className="text-red-500" />
+                            )
+                        } */}

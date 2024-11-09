@@ -10,8 +10,11 @@ import toast from "react-hot-toast";
 const productStore = (set, get) => ({
 
     products: productsData,
+
     cart: [],
     cartLength: 0,
+
+    likedProducts: [],
 
 
     // Actions
@@ -140,6 +143,32 @@ const productStore = (set, get) => ({
         toast.success("Cart cleared successfully!");
     },
 
+    likeProduct: async (likedProduct) => {
+        try {
+            set((state) => ({
+                likedProducts: [likedProduct, ...state.likedProducts],
+            }));
+            // toast.success("Product Liked successfully!");
+
+        } catch (err) {
+            console.error(err);
+            toast.error("Failed to Like the Product.");
+        }
+    },
+
+    unLikeProduct: async (productId) => {
+        try {
+            set((state) => ({
+                likedProducts: state.likedProducts.filter((item) => item.id !== productId),
+            }));
+            // toast.success("Product unLiked successfully!");
+
+        } catch (err) {
+            console.error(err);
+            toast.error("Failed to unLike the Product.");
+        }
+    },
+
 });
 
 
@@ -150,7 +179,8 @@ const useProductStore = create(
             partialize: (state) => ({
                 products: state.products,
                 cart: state.cart,
-                cartLength: state.cartLength
+                cartLength: state.cartLength,
+                likedProducts: state.likedProducts,
             })
         })
     )

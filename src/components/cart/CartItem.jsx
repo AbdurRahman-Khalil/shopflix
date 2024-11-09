@@ -42,7 +42,7 @@ export const CartItem = ({ item }) => {
                 </div>
             </div>
 
-            <button onClick={() => removeFromCart(item.id)} className="absolute top-[0.3rem] sm:top-1 right-[0.3rem] p-[0.3rem] sm:p-0 bg-neutral-50/20 backdrop-blur-md sm:bg-transparent sm:backdrop-blur-[0] rounded-se-xl rounded-es-xl">
+            <button onClick={() => removeFromCart(item.id)} className="absolute top-[0.3rem] sm:top-1 right-[0.3rem] p-[0.3rem] sm:p-0 bg-neutral-50/20 backdrop-blur-md sm:bg-transparent sm:backdrop-blur-[0] rounded-se-xl rounded-es-xl duration-200 ease-linear">
                 <IoClose className="text-[1.65rem] text-red-500 sm:dark:text-red-400" />
             </button>
         </div>
