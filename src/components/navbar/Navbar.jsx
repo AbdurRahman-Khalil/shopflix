@@ -9,9 +9,9 @@ import { ThemeBtn } from "../ThemeBtn";
 
 import { CgMenuLeftAlt } from "react-icons/cg";
 import { IoClose } from "react-icons/io5";
-import { BsCart3 } from "react-icons/bs";
-import { TbBasketHeart } from "react-icons/tb";
+import { BsCart3, BsBookmark } from "react-icons/bs";
 import { BiBookHeart } from "react-icons/bi"
+
 
 
 export const Navbar = () => {
@@ -88,7 +88,10 @@ export const Navbar = () => {
                     />
                 </ul>
                 <div className="flex justify-center items-center gap-[1.15rem] dark:gap-[1.27rem] mt-[0.2rem] ml-auto mr-[1.15rem] dark:mr-[1.25rem] md:mx-0 md:dark:mx-0">
-                    <Link to={"/liked_products"} className="max-[399px]:hidden">
+                    <Link to={"/wishlist"} className="max-[414px]:hidden">
+                        <BsBookmark className="text-[1.4rem] text-sky-500/85 dark:text-sky-400" />
+                    </Link>
+                    <Link to={"/liked_products"} className="max-[463px]:hidden">
                         <BiBookHeart className="text-[1.55rem] text-red-500/85 dark:text-red-400" />
                     </Link>
                     <Link to={"/cart"} className="relative max-[359px]:hidden">
@@ -100,7 +103,7 @@ export const Navbar = () => {
                             {cartLength}
                         </p>
                     </Link>
-                    <ThemeBtn hideSeek={"max-[450px]:hidden min-[451px]:pl-[0.6rem]"} />
+                    <ThemeBtn hideSeek={"max-[499px]:hidden min-[500px]:pl-[0.6rem]"} />
                 </div>
             </>
 
@@ -115,9 +118,10 @@ export const Navbar = () => {
 
             <ul
                 ref={menuRef}
-                className={`space-y-6 w-full text-end z-10 ${isMenuOpen
-                    ? "opacity-100 translate-y-0 duration-300 ease-in-out"
-                    : "opacity-0 -translate-y-5 pointer-events-none"
+                className={`space-y-6 w-full text-end z-10 
+                    ${isMenuOpen
+                        ? "opacity-100 translate-y-0 duration-300 ease-in-out"
+                        : "opacity-0 -translate-y-5 pointer-events-none"
                     } transition-all duration-300 ease-in-out absolute top-[4.7rem] right-0 
                     bg-neutral-50 dark:bg-neutral-900 ring-1 ring-neutral-900/15 dark:ring-neutral-50/20 rounded-lg shadow-lg px-5 pt-8 pb-3.5 md:hidden
                     `}
@@ -155,19 +159,27 @@ export const Navbar = () => {
                         onClick={closeMenu}
                     />
                 </li>
+
                 <li
                     className={`${staggerChildren ? "delay-200 opacity-100 translate-x-0" : "opacity-0 translate-x-5"
                         } transition duration-300`}
                 >
-                    <ThemeBtn hideSeek={"min-[451px]:hidden ml-auto pt-2"} />
+                    <ThemeBtn hideSeek={"min-[500px]:hidden ml-auto pt-2"} />
                 </li>
-
                 <li
                     className={`${staggerChildren ? "delay-300 opacity-100 translate-x-0" : "opacity-0 translate-x-5"
                         } transition duration-300`}
                 >
                     <Link to={"/liked_products"} onClick={closeMenu}>
-                        <BiBookHeart className="text-[1.55rem] text-red-500/85 dark:text-red-400 min-[400px]:hidden ml-auto -mr-0.5 mb-5" />
+                        <BiBookHeart className="text-[1.55rem] text-red-500/85 dark:text-red-400 min-[464px]:hidden ml-auto -mr-[0.1rem]" />
+                    </Link>
+                </li>
+                <li
+                    className={`${staggerChildren ? "delay-300 opacity-100 translate-x-0" : "opacity-0 translate-x-5"
+                        } transition duration-300`}
+                >
+                    <Link to={"/wishlist"} onClick={closeMenu}>
+                        <BsBookmark className="text-[1.4rem] text-sky-500/85 dark:text-sky-400 min-[415px]:hidden mt-8 mb-5 ml-auto -mr-[0.1rem]" />
                     </Link>
                 </li>
             </ul>

@@ -75,7 +75,9 @@ const productsData = [
         "totalPrice": 120,
         "category": "Watches",
         "image": watchImg1,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 2,
@@ -85,7 +87,9 @@ const productsData = [
         "totalPrice": 85,
         "category": "Watches",
         "image": watchImg2,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 3,
@@ -95,7 +99,9 @@ const productsData = [
         "totalPrice": 65,
         "category": "Watches",
         "image": watchImg3,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 4,
@@ -105,7 +111,9 @@ const productsData = [
         "totalPrice": 150,
         "category": "Watches",
         "image": watchImg4,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 5,
@@ -115,7 +123,9 @@ const productsData = [
         "totalPrice": 100,
         "category": "Watches",
         "image": watchImg5,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 6,
@@ -125,7 +135,9 @@ const productsData = [
         "totalPrice": 130,
         "category": "Watches",
         "image": watchImg6,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 7,
@@ -135,7 +147,9 @@ const productsData = [
         "totalPrice": 90,
         "category": "Watches",
         "image": watchImg7,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 8,
@@ -145,7 +159,9 @@ const productsData = [
         "totalPrice": 110,
         "category": "Watches",
         "image": watchImg8,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 9,
@@ -155,7 +171,9 @@ const productsData = [
         "totalPrice": 140,
         "category": "Watches",
         "image": watchImg9,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
 
     // //? Glasses
@@ -167,7 +185,9 @@ const productsData = [
         "totalPrice": 50,
         "category": "Glasses",
         "image": glassImg1,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 12,
@@ -177,7 +197,9 @@ const productsData = [
         "totalPrice": 45,
         "category": "Glasses",
         "image": glassImg2,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 13,
@@ -187,7 +209,9 @@ const productsData = [
         "totalPrice": 30,
         "category": "Glasses",
         "image": glassImg3,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 14,
@@ -197,7 +221,9 @@ const productsData = [
         "totalPrice": 40,
         "category": "Glasses",
         "image": glassImg4,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 15,
@@ -207,7 +233,9 @@ const productsData = [
         "totalPrice": 60,
         "category": "Glasses",
         "image": glassImg5,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 16,
@@ -217,7 +245,9 @@ const productsData = [
         "totalPrice": 55,
         "category": "Glasses",
         "image": glassImg6,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 17,
@@ -227,7 +257,9 @@ const productsData = [
         "totalPrice": 35,
         "category": "Glasses",
         "image": glassImg7,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 18,
@@ -237,7 +269,9 @@ const productsData = [
         "totalPrice": 70,
         "category": "Glasses",
         "image": glassImg8,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 19,
@@ -247,7 +281,9 @@ const productsData = [
         "totalPrice": 25,
         "category": "Glasses",
         "image": glassImg9,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 20,
@@ -257,7 +293,9 @@ const productsData = [
         "totalPrice": 65,
         "category": "Glasses",
         "image": glassImg10,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
 
     // //? Shoes
@@ -269,7 +307,9 @@ const productsData = [
         "totalPrice": 75,
         "category": "Shoes",
         "image": shoeImg1,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 22,
@@ -279,7 +319,9 @@ const productsData = [
         "totalPrice": 120,
         "category": "Shoes",
         "image": shoeImg2,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 23,
@@ -289,7 +331,9 @@ const productsData = [
         "totalPrice": 90,
         "category": "Shoes",
         "image": shoeImg3,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 24,
@@ -299,7 +343,9 @@ const productsData = [
         "totalPrice": 85,
         "category": "Shoes",
         "image": shoeImg4,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 25,
@@ -309,7 +355,9 @@ const productsData = [
         "totalPrice": 140,
         "category": "Shoes",
         "image": shoeImg5,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 26,
@@ -319,7 +367,9 @@ const productsData = [
         "totalPrice": 65,
         "category": "Shoes",
         "image": shoeImg6,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 27,
@@ -329,7 +379,9 @@ const productsData = [
         "totalPrice": 50,
         "category": "Shoes",
         "image": shoeImg7,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 28,
@@ -339,7 +391,9 @@ const productsData = [
         "totalPrice": 85,
         "category": "Shoes",
         "image": shoeImg8,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 29,
@@ -349,7 +403,9 @@ const productsData = [
         "totalPrice": 95,
         "category": "Shoes",
         "image": shoeImg9,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 30,
@@ -359,7 +415,9 @@ const productsData = [
         "totalPrice": 130,
         "category": "Shoes",
         "image": shoeImg10,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
 
     // //? Hoodies
@@ -371,7 +429,9 @@ const productsData = [
         "totalPrice": 60,
         "category": "Hoodies",
         "image": hoodieImg1,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 32,
@@ -381,7 +441,9 @@ const productsData = [
         "totalPrice": 45,
         "category": "Hoodies",
         "image": hoodieImg2,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 33,
@@ -391,7 +453,9 @@ const productsData = [
         "totalPrice": 55,
         "category": "Hoodies",
         "image": hoodieImg3,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 34,
@@ -401,7 +465,9 @@ const productsData = [
         "totalPrice": 50,
         "category": "Hoodies",
         "image": hoodieImg4,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 35,
@@ -411,7 +477,9 @@ const productsData = [
         "totalPrice": 65,
         "category": "Hoodies",
         "image": hoodieImg5,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 36,
@@ -421,7 +489,9 @@ const productsData = [
         "totalPrice": 40,
         "category": "Hoodies",
         "image": hoodieImg6,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 37,
@@ -431,7 +501,9 @@ const productsData = [
         "totalPrice": 48,
         "category": "Hoodies",
         "image": hoodieImg7,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 38,
@@ -441,7 +513,9 @@ const productsData = [
         "totalPrice": 35,
         "category": "Hoodies",
         "image": hoodieImg8,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 39,
@@ -451,7 +525,9 @@ const productsData = [
         "totalPrice": 55,
         "category": "Hoodies",
         "image": hoodieImg9,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 40,
@@ -461,7 +537,9 @@ const productsData = [
         "totalPrice": 65,
         "category": "Hoodies",
         "image": hoodieImg10,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
 
     // //? Mobiles
@@ -473,7 +551,9 @@ const productsData = [
         "totalPrice": 1800,
         "category": "Mobiles",
         "image": mobileImg1,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 42,
@@ -483,7 +563,9 @@ const productsData = [
         "totalPrice": 1200,
         "category": "Mobiles",
         "image": mobileImg2,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 43,
@@ -493,7 +575,9 @@ const productsData = [
         "totalPrice": 950,
         "category": "Mobiles",
         "image": mobileImg3,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 44,
@@ -503,7 +587,9 @@ const productsData = [
         "totalPrice": 850,
         "category": "Mobiles",
         "image": mobileImg4,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 45,
@@ -513,7 +599,9 @@ const productsData = [
         "totalPrice": 350,
         "category": "Mobiles",
         "image": mobileImg5,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 46,
@@ -523,7 +611,9 @@ const productsData = [
         "totalPrice": 1000,
         "category": "Mobiles",
         "image": mobileImg6,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 47,
@@ -533,7 +623,9 @@ const productsData = [
         "totalPrice": 1100,
         "category": "Mobiles",
         "image": mobileImg7,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 48,
@@ -543,7 +635,9 @@ const productsData = [
         "totalPrice": 900,
         "category": "Mobiles",
         "image": mobileImg8,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 49,
@@ -553,7 +647,9 @@ const productsData = [
         "totalPrice": 1400,
         "category": "Mobiles",
         "image": mobileImg9,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 50,
@@ -563,7 +659,9 @@ const productsData = [
         "totalPrice": 600,
         "category": "Mobiles",
         "image": mobileImg10,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
 
     // //? Laptops
@@ -575,7 +673,9 @@ const productsData = [
         "totalPrice": 2500,
         "category": "Laptops",
         "image": laptopImg1,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 52,
@@ -585,7 +685,9 @@ const productsData = [
         "totalPrice": 1500,
         "category": "Laptops",
         "image": laptopImg2,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 53,
@@ -595,7 +697,9 @@ const productsData = [
         "totalPrice": 1800,
         "category": "Laptops",
         "image": laptopImg3,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 54,
@@ -605,7 +709,9 @@ const productsData = [
         "totalPrice": 1600,
         "category": "Laptops",
         "image": laptopImg4,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 55,
@@ -615,7 +721,9 @@ const productsData = [
         "totalPrice": 1900,
         "category": "Laptops",
         "image": laptopImg5,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 56,
@@ -625,7 +733,9 @@ const productsData = [
         "totalPrice": 2200,
         "category": "Laptops",
         "image": laptopImg6,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 57,
@@ -635,7 +745,9 @@ const productsData = [
         "totalPrice": 1400,
         "category": "Laptops",
         "image": laptopImg7,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 58,
@@ -645,7 +757,9 @@ const productsData = [
         "totalPrice": 2100,
         "category": "Laptops",
         "image": laptopImg8,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 59,
@@ -655,7 +769,9 @@ const productsData = [
         "totalPrice": 2300,
         "category": "Laptops",
         "image": laptopImg9,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
     {
         "id": 60,
@@ -665,7 +781,9 @@ const productsData = [
         "totalPrice": 1300,
         "category": "Laptops",
         "image": laptopImg10,
-        "quantity": 1
+        "quantity": 1,
+        "isLiked": false,
+        "isWishlisted": false,
     },
 ];
 

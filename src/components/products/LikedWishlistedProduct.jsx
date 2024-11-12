@@ -1,15 +1,17 @@
 import { useState } from "react";
 
 import { motion } from "framer-motion";
-// import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import useProductStore from "../../stores/products/ProductStore";
 
-// import generateSlug from "../../utils/generateSlug";
-// import genSmallCaseCategory from "../../utils/genSmallCaseCategory";
+import generateSlug from "../../utils/generateSlug";
+import genSmallCaseCategory from "../../utils/genSmallCaseCategory";
 
 import { IoHeartDislike } from "react-icons/io5";
-// import { RiShareForwardBoxLine } from "react-icons/ri";
+import { GoBookmarkSlashFill } from "react-icons/go";
+import { RiShareBoxLine } from "react-icons/ri";
+
 
 
 const containerVariants = {
@@ -36,13 +38,18 @@ const itemAnimations = {
 }
 
 
-export const LikedProduct = ({ item }) => {
-    const unLikeProduct = useProductStore((state) => state.unLikeProduct);
+export const LikedWishlistedProduct = ({ item }) => {
+    const disLike = useProductStore((state) => state.disLike);
+    const removeFromWishlist = useProductStore((state) => state.removeFromWishlist);
 
     const [isHovered, setIsHovered] = useState(false);
 
-    // const sluggedTitle = generateSlug(item.title);
-    // const smallCasedCategory = genSmallCaseCategory(item.category);
+    const sluggedTitle = generateSlug(item.title);
+    const smallCasedCategory = genSmallCaseCategory(item.category);
+
+    const location = useLocation();
+    const isLikedProducts = location.pathname.includes("/liked_products");
+    const isWishlist = location.pathname.includes("/wishlist");
 
 
     return (
@@ -72,12 +79,28 @@ export const LikedProduct = ({ item }) => {
                     &#x24;<span className="ml-[0.15rem]">{item.price}</span>
                 </motion.p>
             </motion.div>
-            <motion.button
-                onClick={() => unLikeProduct(item.id)}
-                className="absolute top-0 right-0 p-[0.25rem] pl-[0.3rem] pb-[0.35rem] bg-neutral-50/20 backdrop-blur-md rounded-se-2xl rounded-es-2xl sm:rounded-se-xl sm:rounded-es-xl duration-200 ease-linear"
-            >
-                <IoHeartDislike className="text-[1.3rem] text-red-500" />
-            </motion.button>
+            <div className="flex items-center gap-2.5 absolute bottom-0 right-0 p-[0.45rem] pr-[0.4rem] pb-[0.4rem] bg-neutral-50/20 backdrop-blur-md rounded-ss-2xl rounded-ee-2xl sm:rounded-ss-xl sm:rounded-ee-xl duration-200 ease-linear">
+                <Link
+                    to={`/products/${smallCasedCategory}/${sluggedTitle}`}
+                >
+                    <RiShareBoxLine className="text-[1.25rem] text-neutral-800" />
+                </Link>
+                {
+                    (!isLikedProducts && isWishlist)
+                        ? <button
+                            onClick={() => removeFromWishlist(item.id)}
+                        >
+                            <GoBookmarkSlashFill className="text-[1.3rem] text-sky-500" />
+                        </button>
+                        : (isLikedProducts && !isWishlist)
+                            ? <button
+                                onClick={() => disLike(item.id)}
+                            >
+                                <IoHeartDislike className="text-[1.3rem] text-red-500" />
+                            </button>
+                            : null
+                }
+            </div>
         </div>
     );
 };
@@ -86,6 +109,5 @@ export const LikedProduct = ({ item }) => {
 
 
 
-{/* <Link to={`/products/${smallCasedCategory}/${sluggedTitle}`}> */ }
-{/* visit */ }
-{/* </Link> */ }
+
+

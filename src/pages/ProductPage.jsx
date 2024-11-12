@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import { useNavigate, useParams } from "react-router-dom";
 
 import { motion, AnimatePresence } from "framer-motion";
@@ -23,11 +21,12 @@ import { MdKeyboardBackspace } from "react-icons/md";
 export const ProductPage = () => {
     const products = useProductStore((state) => state.products);
     const likedProducts = useProductStore((state) => state.likedProducts);
+    const wishlist = useProductStore((state) => state.wishlist);
     const addToCart = useProductStore((state) => state.addToCart);
-    const likeProduct = useProductStore((state) => state.likeProduct);
-    const unLikeProduct = useProductStore((state) => state.unLikeProduct);
-
-    const [wishlist, setWishlist] = useState(false);
+    const like = useProductStore((state) => state.like);
+    const disLike = useProductStore((state) => state.disLike);
+    const addToWishlist = useProductStore((state) => state.addToWishlist);
+    const removeFromWishlist = useProductStore((state) => state.removeFromWishlist);
 
     const { slug } = useParams();
     const navigate = useNavigate();
@@ -51,19 +50,18 @@ export const ProductPage = () => {
     const randomUserId = generateUserId();
     const formattedDate = formateDate();
 
-    const handleLike = () => {
-        const newItem = {
-            id: openedProduct.id,
-            title: openedProduct.title,
-            price: openedProduct.price,
-            image: openedProduct.image,
-            category: openedProduct.category,
-            likedBy: randomUserId,
-            likedAt: formattedDate,
-        };
-
-        likeProduct(newItem);
+    const newItem = {
+        id: openedProduct.id,
+        title: openedProduct.title,
+        price: openedProduct.price,
+        image: openedProduct.image,
+        category: openedProduct.category,
+        likedBy: randomUserId,
+        likedAt: formattedDate,
     };
+
+    const handleLike = () => like(newItem);
+    const handleWishlist = () => addToWishlist(newItem);
 
 
     return (
@@ -136,7 +134,7 @@ export const ProductPage = () => {
                                         {likedProducts.find((item) => item.id === openedProduct.id) ? (
                                             <motion.div
                                                 role="button"
-                                                onClick={() => unLikeProduct(openedProduct.id)}
+                                                onClick={() => disLike(openedProduct.id)}
                                                 key="liked"
                                                 initial="initial"
                                                 animate="liked"
@@ -161,14 +159,36 @@ export const ProductPage = () => {
                                     </AnimatePresence>
                                 </motion.button>
                                 <motion.button
-                                    onClick={() => setWishlist(() => !wishlist)}
-                                    whileHover={{ scale: 1.12 }}
                                     whileTap={{ scale: 0.95 }}
-                                    className="text-[1.4rem] bg-sky-100 px-3.5 rounded-xl"
+                                    className="text-[1.4rem] text-sky-500 bg-sky-100 px-3.5 pb-[0.08rem] rounded-xl"
                                 >
-                                    {
-                                        wishlist ? <BsBookmarkCheckFill className="text-sky-500 dark:text-cyan-500" /> : <BsBookmarkPlus className="text-sky-500 dark:text-cyan-500" />
-                                    }
+                                    <AnimatePresence mode="wait">
+                                        {wishlist.find((item) => item.id === openedProduct.id) ? (
+                                            <motion.div
+                                                role="button"
+                                                onClick={() => removeFromWishlist(openedProduct.id)}
+                                                key="liked"
+                                                initial="initial"
+                                                animate="liked"
+                                                exit="exit"
+                                                variants={likeAnimationVariants}
+                                            >
+                                                <BsBookmarkCheckFill />
+                                            </motion.div>
+                                        ) : (
+                                            <motion.div
+                                                role="button"
+                                                onClick={handleWishlist}
+                                                key="unliked"
+                                                initial="initial"
+                                                animate="unliked"
+                                                exit="exit"
+                                                variants={likeAnimationVariants}
+                                            >
+                                                <BsBookmarkPlus />
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
                                 </motion.button>
                             </div>
                         </div>

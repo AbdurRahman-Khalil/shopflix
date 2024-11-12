@@ -1,10 +1,9 @@
 import { create } from "zustand";
-
 import { devtools, persist } from "zustand/middleware";
-import productsData from "./ProductData";
 
 import toast from "react-hot-toast";
 
+import productsData from "./ProductData";
 
 
 const productStore = (set, get) => ({
@@ -15,6 +14,7 @@ const productStore = (set, get) => ({
     cartLength: 0,
 
     likedProducts: [],
+    wishlist: [],
 
 
     // Actions
@@ -143,10 +143,15 @@ const productStore = (set, get) => ({
         toast.success("Cart cleared successfully!");
     },
 
-    likeProduct: async (likedProduct) => {
+    like: async (likedProduct) => {
         try {
             set((state) => ({
                 likedProducts: [likedProduct, ...state.likedProducts],
+                products: state.products.map((product) =>
+                    product.id === likedProduct.id
+                        ? { ...product, isLiked: true }
+                        : product
+                ),
             }));
             // toast.success("Product Liked successfully!");
 
@@ -156,16 +161,57 @@ const productStore = (set, get) => ({
         }
     },
 
-    unLikeProduct: async (productId) => {
+    disLike: async (productId) => {
         try {
             set((state) => ({
                 likedProducts: state.likedProducts.filter((item) => item.id !== productId),
+                products: state.products.map((product) =>
+                    product.id === productId
+                        ? { ...product, isLiked: false }
+                        : product
+                ),
             }));
             // toast.success("Product unLiked successfully!");
 
         } catch (err) {
             console.error(err);
             toast.error("Failed to unLike the Product.");
+        }
+    },
+
+    addToWishlist: async (wishlistedProduct) => {
+        try {
+            set((state) => ({
+                wishlist: [wishlistedProduct, ...state.wishlist],
+                products: state.products.map((product) =>
+                    product.id === wishlistedProduct.id
+                        ? { ...product, isWishlisted: true }
+                        : product
+                ),
+            }));
+            // toast.success("Product added to Wishlist successfully!");
+
+        } catch (err) {
+            console.error(err);
+            toast.error("Failed to add the Product to Wishlist.");
+        }
+    },
+
+    removeFromWishlist: async (productId) => {
+        try {
+            set((state) => ({
+                wishlist: state.wishlist.filter((item) => item.id !== productId),
+                products: state.products.map((product) =>
+                    product.id === productId
+                        ? { ...product, isWishlisted: false }
+                        : product
+                ),
+            }));
+            // toast.success("Product removed from Wishlist successfully!");
+
+        } catch (err) {
+            console.error(err);
+            toast.error("Failed to remove the Product from Wishlist.");
         }
     },
 
@@ -181,6 +227,7 @@ const useProductStore = create(
                 cart: state.cart,
                 cartLength: state.cartLength,
                 likedProducts: state.likedProducts,
+                wishlist: state.wishlist,
             })
         })
     )

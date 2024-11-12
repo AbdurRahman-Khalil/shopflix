@@ -1,9 +1,14 @@
 const filterProducts = (products, category) => {
-    const filteredProducts = category ?
-        products.filter((product) => product.category === category) :
-        products;
+    
+    if (category === "Liked") {
+        return products.filter((product) => product.isLiked);
 
-    return filteredProducts;
+    } else if (category === "Wishlisted") {
+        return products.filter((product) => product.isWishlisted);
+    }
+
+    return category ? products.filter((product) => product.category === category) : products;
+    
 };
 
 export default filterProducts;

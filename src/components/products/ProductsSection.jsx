@@ -20,7 +20,7 @@ export const ProductsSection = () => {
     
 
     // To allow only specified categories
-    const allowedCategories = ["all", "watches", "mobiles", "shoes", "glasses", "hoodies", "laptops"];
+    const allowedCategories = ["all", "watches", "mobiles", "shoes", "glasses", "hoodies", "laptops", "liked", "wishlisted"];
 
     // Checking if the category is valid
     if (!allowedCategories.includes(category)) {
