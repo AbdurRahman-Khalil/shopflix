@@ -9,9 +9,11 @@ import generateUserId from "../../utils/generateUserId";
 import formateDate from "../../utils/formateDate";
 import likeAnimationVariants from "../../animations/likeAnimation";
 
+import { Rating } from "../Rating";
+import { ProductRating } from "./productRating";
+
 import { FaHeart, FaRegHeart } from "react-icons/fa6";
 import { BsBookmark, BsBookmarkFill, BsCart3 } from "react-icons/bs";
-import { FaStar, FaRegStar } from "react-icons/fa";
 
 
 
@@ -93,29 +95,11 @@ export const Product = ({ prod }) => {
                 </Link>
                 <div className="flex justify-between items-center mt-2.5 mb-1.5">
                     <p className="text-[1.08rem] font-semibold dark:font-medium tracking-wide">&#x24; <span className="-ml-[0.18rem]">{prod.price}</span></p>
-                    <div className={`ratings flex items-center gap-[0.2rem]`}>
-                        {[...Array(5)].map((star, index) => {
-                            const currentRating = index + 1;
-
-                            return (
-                                <label key={index}>
-                                    <input
-                                        className="hidden"
-                                        type="radio"
-                                        name="rating"
-                                        value={currentRating}
-                                    />
-                                    <span
-                                    >
-                                        {
-                                            <FaStar className={`text-[#ffd700] text-[1.025rem] cursor-pointer`} />
-                                            // <FaRegStar className={`text-[#ffd700] text-[1.025rem] cursor-pointer`} />
-                                        }
-                                    </span>
-                                </label>
-                            )
-                        })}
-                    </div>
+                    {
+                        prod.usersRatings.length > 0
+                            ? <ProductRating ratings={prod.rating} addStarStyles={"text-[1.05rem]"} />
+                            : <Rating productId={prod.id} addStarStyles={"text-[1.05rem]"} />
+                    }
                 </div>
                 <Link to={`/products/${smallCasedCategory}/${sluggedTitle}`}>
                     <p className="mb-[0.8rem] line-clamp-2 leading-5 text-[0.9rem] font-medium dark:font-normal dark:tracking-wide relative group">

@@ -10,8 +10,9 @@ import generateUserId from "../utils/generateUserId";
 import likeAnimationVariants from "../animations/likeAnimation";
 
 import { BackBtn } from "../components/BackBtn";
+import { Rating } from "../components/Rating";
+import { ProductRating } from "../components/products/productRating";
 
-import { FaStar, FaRegStar } from "react-icons/fa";
 import { BsCart3 } from "react-icons/bs";
 import { FaHeart, FaRegHeart } from "react-icons/fa6";
 import { BsBookmark, BsBookmarkFill } from "react-icons/bs";
@@ -82,28 +83,21 @@ export const ProductPage = () => {
                         </div>
 
                         <div className="space-y-[0.7rem] sm:space-y-[0.75rem]">
-                            <div className={`ratings flex items-center gap-[0.2rem]`}>
-                                {[...Array(5)].map((star, index) => {
-                                    const currentRating = index + 1;
-                                    return (
-                                        <label key={index}>
-                                            <input
-                                                className="hidden"
-                                                type="radio"
-                                                name="rating"
-                                                value={currentRating}
-                                            />
-                                            <span
-                                            >
-                                                {
-                                                    // <FaStar className={`text-[#ffd700] text-[1.2rem] cursor-pointer`} />
-                                                    <FaRegStar className={`text-[#ffd700] text-[1.17rem] sm:text-[1.25rem] lg:text-[1.3rem] cursor-pointer`} />
-                                                }
-                                            </span>
-                                        </label>
+                            {
+                                openedProduct.usersRatings.length > 0
+                                    ? (
+                                        <ProductRating
+                                            ratings={openedProduct.rating}
+                                            addStarStyles={"text-[1.17rem] sm:text-[1.25rem] lg:text-[1.3rem]"}
+                                        />
                                     )
-                                })}
-                            </div>
+                                    : (
+                                        <Rating
+                                            productId={openedProduct.id}
+                                            addStarStyles={"text-[1.17rem] sm:text-[1.25rem] lg:text-[1.3rem]"}
+                                        />
+                                    )
+                            }
                             <p className="lg:ml-[0.1rem] text-[1rem] sm:text-[1.1rem] lg:text-[1.18rem] font-medium dark:font-normal dark:tracking-wide leading-[1.45rem] sm:leading-[1.6rem] lg:leading-[1.65rem]">
                                 {openedProduct.description}
                             </p>

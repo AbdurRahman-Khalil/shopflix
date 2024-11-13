@@ -215,6 +215,27 @@ const productStore = (set, get) => ({
         }
     },
 
+    addRating: async (rating, productId) => {
+        try {
+            set((state) => ({
+                products: state.products.map((p) =>
+                    p.id === productId
+                        ? {
+                            ...p,
+                            usersRatings: [rating, ...(p.usersRatings || [])],
+                            rating: [rating, ...(p.usersRatings || [])]
+                                .reduce((a, c) => a + c.rating, 0) / ((p.usersRatings || []).length + 1)
+                        }
+                        : p
+                ),
+            }));
+
+        } catch (err) {
+            console.error(err);
+            toast.error("Failed to rate the Product.");
+        }
+    },
+
 });
 
 
