@@ -15,7 +15,7 @@ export const App = () => {
 
   return (
     <>
-      <Toaster position="top-center" reverseOrder={true} />
+      <Toaster position="bottom-left" reverseOrder={true} />
       <div className="wrapper font-montserrat">
         <header>
           <Navbar />
