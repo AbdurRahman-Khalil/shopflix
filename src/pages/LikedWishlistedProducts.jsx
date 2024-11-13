@@ -1,11 +1,13 @@
 import { motion } from "framer-motion";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 import useProductStore from "../stores/products/ProductStore";
 
 import { LikedWishlistedProduct } from "../components/products/LikedWishlistedProduct";
-import { BsCart3 } from "react-icons/bs";
-import { MdKeyboardBackspace } from "react-icons/md";
+import { BackBtn } from "../components/BackBtn";
+
+import { FaHeart } from "react-icons/fa6";
+import { BsBookmarkFill, BsCart3 } from "react-icons/bs";
 
 
 
@@ -50,28 +52,26 @@ export const LikedWishlistedProducts = () => {
         theProducts = [];
     }
 
-    const navigate = useNavigate();
-
 
     return (
         <section
             id="liked-products"
             className="mt-[5.8rem] mb-[2.5rem] px-5 min-[340px]:max-[419px]:px-4 md:px-10 xl:mx-auto xl:container duration-200 ease-linear"
         >
-            <MdKeyboardBackspace
-                role="button"
-                onClick={() => navigate(-1)}
-                className="text-[2rem] -ml-0.5 hover:-translate-x-[0.35rem] transition-transform duration-200 ease-linear"
-            />
+            <BackBtn />
             <h2
-                className={`text-[1.7rem] font-semibold dark:font-medium dark:tracking-wide mt-[0.65rem] mb-[1.9rem]
-                relative after:absolute after:-bottom-0.5 after:left-0 after:bg-neutral-800 dark:after:bg-neutral-100 after:h-[0.2rem] after:rounded-full
-                ${isWishlist ? "after:w-[3rem]" : "after:w-[5.5rem]"}`}
+                className={`text-[1.7rem] font-semibold dark:font-medium dark:tracking-wide mt-[0.75rem] mb-[1.4rem]`}
             >
                 {
-                    (isLikedProducts && !isWishlist) ? `Liked Products (${theProducts.length})` :
-                        (!isLikedProducts && isWishlist) ? `Wishlist (${theProducts.length})` :
-                            null
+                    (isLikedProducts && !isWishlist)
+                        ? <span className="flex items-center gap-2">
+                            <FaHeart className="mb-1 text-red-500" /> {`Liked Products (${theProducts.length})`}
+                        </span>
+                        : (!isLikedProducts && isWishlist)
+                            ? <span className="flex items-center gap-2">
+                                <BsBookmarkFill className="mb-0.5 text-sky-500" /> {`Wishlist (${theProducts.length})`}
+                            </span>
+                            : null
                 }
             </h2>
             <motion.div

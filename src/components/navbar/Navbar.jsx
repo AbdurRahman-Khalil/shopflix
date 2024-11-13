@@ -9,9 +9,9 @@ import { ThemeBtn } from "../ThemeBtn";
 
 import { CgMenuLeftAlt } from "react-icons/cg";
 import { IoClose } from "react-icons/io5";
-import { BsCart3, BsBookmark } from "react-icons/bs";
+import { BsCart3 } from "react-icons/bs";
 import { BiBookHeart } from "react-icons/bi"
-
+import { RiBookMarkedLine } from "react-icons/ri";
 
 
 export const Navbar = () => {
@@ -89,7 +89,7 @@ export const Navbar = () => {
                 </ul>
                 <div className="flex justify-center items-center gap-[1.15rem] dark:gap-[1.27rem] mt-[0.2rem] ml-auto mr-[1.15rem] dark:mr-[1.25rem] md:mx-0 md:dark:mx-0">
                     <Link to={"/wishlist"} className="max-[414px]:hidden">
-                        <BsBookmark className="text-[1.4rem] text-sky-500/85 dark:text-sky-400" />
+                        <RiBookMarkedLine className="text-[1.55rem] text-sky-500/85 dark:text-sky-400" />
                     </Link>
                     <Link to={"/liked_products"} className="max-[463px]:hidden">
                         <BiBookHeart className="text-[1.55rem] text-red-500/85 dark:text-red-400" />
@@ -103,7 +103,7 @@ export const Navbar = () => {
                             {cartLength}
                         </p>
                     </Link>
-                    <ThemeBtn hideSeek={"max-[499px]:hidden min-[500px]:pl-[0.6rem]"} />
+                    <ThemeBtn hideSeek={"max-[504px]:hidden min-[505px]:pl-[0.6rem]"} />
                 </div>
             </>
 
@@ -164,7 +164,7 @@ export const Navbar = () => {
                     className={`${staggerChildren ? "delay-200 opacity-100 translate-x-0" : "opacity-0 translate-x-5"
                         } transition duration-300`}
                 >
-                    <ThemeBtn hideSeek={"min-[500px]:hidden ml-auto pt-2"} />
+                    <ThemeBtn hideSeek={"min-[505px]:hidden ml-auto pt-2"} />
                 </li>
                 <li
                     className={`${staggerChildren ? "delay-300 opacity-100 translate-x-0" : "opacity-0 translate-x-5"
@@ -179,7 +179,7 @@ export const Navbar = () => {
                         } transition duration-300`}
                 >
                     <Link to={"/wishlist"} onClick={closeMenu}>
-                        <BsBookmark className="text-[1.4rem] text-sky-500/85 dark:text-sky-400 min-[415px]:hidden mt-8 mb-5 ml-auto -mr-[0.1rem]" />
+                        <RiBookMarkedLine className="text-[1.55rem] text-sky-500/85 dark:text-sky-400 min-[415px]:hidden mt-8 mb-5 ml-auto -mr-[0.1rem]" />
                     </Link>
                 </li>
             </ul>

@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 import useProductStore from "../stores/products/ProductStore";
 import useModalStore from "../stores/modal/ModalStore";
 
-import { Link } from "react-router-dom";
 import { CartItem } from "../components/cart/CartItem";
 import { Modal } from "../components/Modal";
+import { BackBtn } from "../components/BackBtn";
 
 import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
 import { TiDeleteOutline } from "react-icons/ti";
@@ -44,7 +45,10 @@ export const Cart = () => {
     return (
         <>
             <section className="mt-[6.35rem] mb-[10rem] px-5 md:px-10 lg:max-[1200px]:mx-auto lg:max-[1200px]:container xl:mx-auto xl:container duration-200 ease-linear">
-                <h2 className="text-2xl font-semibold dark:font-medium dark:tracking-wide text-center mb-[1.35rem]">YOUR CART</h2>
+                <div className="flex gap-7 mb-[1.35rem]">
+                    <BackBtn />
+                    <h2 className=" justify-self-center text-2xl font-semibold dark:font-medium dark:tracking-wide text-center">YOUR CART</h2>
+                </div>
                 <motion.div
                     className="grid grid-cols-1 min-[500px]:grid-cols-2 sm:grid-cols-1 min-[1201px]:grid-cols-2 gap-[0.85rem] min-[500px]:gap-[0.7rem] sm:gap-3"
                     initial="hidden"

@@ -7,11 +7,10 @@ import generateSlug from "../../utils/generateSlug";
 import genSmallCaseCategory from "../../utils/genSmallCaseCategory";
 import generateUserId from "../../utils/generateUserId";
 import formateDate from "../../utils/formateDate";
-
 import likeAnimationVariants from "../../animations/likeAnimation";
 
 import { FaHeart, FaRegHeart } from "react-icons/fa6";
-import { BsBookmarkPlus, BsBookmarkCheckFill, BsCart3 } from "react-icons/bs";
+import { BsBookmark, BsBookmarkFill, BsCart3 } from "react-icons/bs";
 import { FaStar, FaRegStar } from "react-icons/fa";
 
 
@@ -166,7 +165,7 @@ export const Product = ({ prod }) => {
                                     exit="exit"
                                     variants={likeAnimationVariants}
                                 >
-                                    <BsBookmarkCheckFill />
+                                    <BsBookmarkFill />
                                 </motion.div>
                             ) : (
                                 <motion.div
@@ -178,7 +177,7 @@ export const Product = ({ prod }) => {
                                     exit="exit"
                                     variants={likeAnimationVariants}
                                 >
-                                    <BsBookmarkPlus />
+                                    <BsBookmark />
                                 </motion.div>
                             )}
                         </AnimatePresence>

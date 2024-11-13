@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -7,14 +7,14 @@ import useProductStore from "../stores/products/ProductStore";
 import generateSlug from "../utils/generateSlug";
 import formateDate from "../utils/formateDate";
 import generateUserId from "../utils/generateUserId";
-
 import likeAnimationVariants from "../animations/likeAnimation";
+
+import { BackBtn } from "../components/BackBtn";
 
 import { FaStar, FaRegStar } from "react-icons/fa";
 import { BsCart3 } from "react-icons/bs";
 import { FaHeart, FaRegHeart } from "react-icons/fa6";
-import { BsBookmarkPlus, BsBookmarkCheckFill } from "react-icons/bs";
-import { MdKeyboardBackspace } from "react-icons/md";
+import { BsBookmark, BsBookmarkFill } from "react-icons/bs";
 
 
 
@@ -29,7 +29,6 @@ export const ProductPage = () => {
     const removeFromWishlist = useProductStore((state) => state.removeFromWishlist);
 
     const { slug } = useParams();
-    const navigate = useNavigate();
 
     const openedProduct = products.find(product => generateSlug(product.title) === slug);
 
@@ -69,11 +68,7 @@ export const ProductPage = () => {
             id="product_page"
             className="mt-[5.6rem] px-5 md:px-10 xl:mx-auto xl:container duration-200 ease-linear"
         >
-            <MdKeyboardBackspace
-                role="button"
-                onClick={() => navigate(-1)}
-                className="text-[2rem] -ml-0.5 hover:-translate-x-[0.35rem] transition-transform duration-200 ease-linear"
-            />
+            <BackBtn />
             {openedProduct ? (
                 <div className="flex flex-col gap-3.5 sm:gap-4 lg:gap-[1.1rem] lg:flex-row lg:items-center mt-[1.1rem]">
                     <div className="max-w-full min-h-full md:max-w-[25rem] md:min-h-[25rem] lg:max-w-[28rem] lg:min-h-[28rem] aspect-square rounded-xl">
@@ -173,7 +168,7 @@ export const ProductPage = () => {
                                                 exit="exit"
                                                 variants={likeAnimationVariants}
                                             >
-                                                <BsBookmarkCheckFill />
+                                                <BsBookmarkFill />
                                             </motion.div>
                                         ) : (
                                             <motion.div
@@ -185,7 +180,7 @@ export const ProductPage = () => {
                                                 exit="exit"
                                                 variants={likeAnimationVariants}
                                             >
-                                                <BsBookmarkPlus />
+                                                <BsBookmark />
                                             </motion.div>
                                         )}
                                     </AnimatePresence>
