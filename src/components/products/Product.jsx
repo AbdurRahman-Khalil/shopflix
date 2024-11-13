@@ -10,7 +10,7 @@ import formateDate from "../../utils/formateDate";
 import likeAnimationVariants from "../../animations/likeAnimation";
 
 import { Rating } from "../Rating";
-import { ProductRating } from "./productRating";
+import { ProductRating } from "./ProductRating";
 
 import { FaHeart, FaRegHeart } from "react-icons/fa6";
 import { BsBookmark, BsBookmarkFill, BsCart3 } from "react-icons/bs";

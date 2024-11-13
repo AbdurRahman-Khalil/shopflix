@@ -11,7 +11,7 @@ import likeAnimationVariants from "../animations/likeAnimation";
 
 import { BackBtn } from "../components/BackBtn";
 import { Rating } from "../components/Rating";
-import { ProductRating } from "../components/products/productRating";
+import { ProductRating } from "../components/products/ProductRating";
 
 import { BsCart3 } from "react-icons/bs";
 import { FaHeart, FaRegHeart } from "react-icons/fa6";
