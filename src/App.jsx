@@ -41,7 +41,7 @@ export const App = () => {
     <>
       <Toaster
         position="bottom-left"
-        reverseOrder={true}
+        reverseOrder={false}
         toastOptions={{
           success: succesToast,
           error: errorToast,
