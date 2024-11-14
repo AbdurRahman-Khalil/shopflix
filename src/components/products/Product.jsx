@@ -168,9 +168,8 @@ export const Product = ({ prod }) => {
                     </button>
                     <motion.button
                         onClick={handleAddToCart}
-                        whileHover={{ scale: 1.05 }}  // Slight scale and color change on hover
                         whileTap={{ scale: 0.95 }}  // Slightly shrink on click
-                        className="bg-emerald-400 dark:bg-emerald-500 flex items-center justify-center gap-1.5 text-neutral-50 tracking-wide text-[1.08rem] flex-1 px-3.5 pt-2 pb-[0.55rem] rounded-lg transition-colors duration-200 ease-in-out"
+                        className="bg-emerald-400 dark:bg-emerald-500 hover:bg-emerald-400/80 dark:hover:bg-emerald-400 flex items-center justify-center gap-1.5 text-neutral-50 tracking-wide text-[1.08rem] flex-1 px-3.5 pt-2 pb-[0.55rem] rounded-lg transition-colors duration-200 ease-linear"
                     >
                         <span>Add to</span>
                         <BsCart3 className="text-[1.18rem]" />

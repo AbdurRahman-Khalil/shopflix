@@ -39,7 +39,7 @@ export const Modal = ({ modalTitle, modalBody, canelationText, actionText }) => 
                 <motion.div
                     onClick={(e) => handleClick(e)}
                     id="modal_overlay"
-                    className="bg-neutral-900/20 backdrop-blur-[24px] w-full min-h-[100dvh] fixed flex justify-center items-center top-0 left-0 z-20"
+                    className="bg-neutral-900/20 backdrop-blur-[24px]  w-full min-h-[100dvh] fixed flex justify-center items-center top-0 left-0 z-20"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}

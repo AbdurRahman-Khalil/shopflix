@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import toast from "react-hot-toast";
 
 import useProductStore from "../stores/products/ProductStore";
 import useModalStore from "../stores/modal/ModalStore";
@@ -41,13 +42,27 @@ export const Cart = () => {
         },
     };
 
+    const handleClearCart = () => {
+        if (cart.length < 1) {
+            return toast('Your cart is already empty!', {
+                duration: 2500,
+                icon: '🙄',
+                style: {
+                    background: '#eab308',
+                    color: '#fefce8',
+                },
+            });
+        }
+        openModal();
+    }
+
 
     return (
         <>
             <section className="mt-[6.35rem] mb-[10rem] px-5 md:px-10 lg:max-[1200px]:mx-auto lg:max-[1200px]:container xl:mx-auto xl:container duration-200 ease-linear">
                 <div className="flex gap-7 mb-[1.35rem]">
                     <BackBtn />
-                    <h2 className=" justify-self-center text-2xl font-semibold dark:font-medium dark:tracking-wide text-center">YOUR CART</h2>
+                    <h2 className="justify-self-center text-2xl font-semibold dark:font-medium dark:tracking-wide text-center">YOUR CART</h2>
                 </div>
                 <motion.div
                     className="grid grid-cols-1 min-[500px]:grid-cols-2 sm:grid-cols-1 min-[1201px]:grid-cols-2 gap-[0.85rem] min-[500px]:gap-[0.7rem] sm:gap-3"
@@ -95,7 +110,10 @@ export const Cart = () => {
                             <IoIosArrowRoundBack className="text-2xl -mt-[0.08rem] group-hover:-translate-x-[0.33rem] transition-transform duration-200 ease-linear" />
                             <span>Shop more</span>
                         </Link>
-                        <button onClick={() => openModal()} className="order-3 min-[490px]:order-2 mx-auto mb-2.5 min-[490px]:m-0 flex items-center gap-1 text-[0.95rem] text-red-500 dark:text-red-400 font-medium tracking-wide hover:scale-[1.06] active:scale-95 transition-transform duration-200 ease-linear">
+                        <button
+                            onClick={handleClearCart}
+                            className="order-3 min-[490px]:order-2 mx-auto mb-2.5 min-[490px]:m-0 flex items-center gap-1 text-[0.95rem] text-red-500 dark:text-red-400 font-medium tracking-wide hover:scale-[1.06] active:scale-95 transition-transform duration-200 ease-linear"
+                        >
                             <TiDeleteOutline className="text-xl -mt-[0.1rem]" />
                             <span>CLEAR CART</span>
                         </button>

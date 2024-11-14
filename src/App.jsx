@@ -12,11 +12,42 @@ import { LikedWishlistedProducts } from "./pages/LikedWishlistedProducts";
 
 
 export const App = () => {
+  const succesToast = {
+    duration: 2500,
+    style: {
+      background: '#0ea5e9',
+      color: '#f0f9ff',
+    },
+    iconTheme: {
+      primary: '#bae6fd',
+      secondary: '#0ea5e9',
+    },
+  }
+
+  const errorToast = {
+    duration: 2500,
+    style: {
+      background: '#ef4444',
+      color: '#fef2f2',
+    },
+    iconTheme: {
+      primary: '#fecaca', // fg
+      secondary: '#ef4444', // bg
+    },
+  }
+
 
   return (
     <>
-      <Toaster position="bottom-left" reverseOrder={true} />
-      <div className="wrapper font-montserrat">
+      <Toaster
+        position="bottom-left"
+        reverseOrder={true}
+        toastOptions={{
+          success: succesToast,
+          error: errorToast,
+        }}
+      />
+      <div className="wrapper font-montserrat bg-sk">
         <header>
           <Navbar />
         </header>
@@ -29,9 +60,9 @@ export const App = () => {
             <Route path="/products" element={<Products />}>
               <Route path="/products/:category" element={<ProductsSection />} />
             </Route>
-            
+
             <Route path="/products/:category/:slug" element={<ProductPage />} />
-            
+
             <Route path="/liked_products" element={<LikedWishlistedProducts />} />
             <Route path="/wishlist" element={<LikedWishlistedProducts />} />
 

@@ -108,9 +108,8 @@ export const ProductPage = () => {
                             <div className="flex gap-2">
                                 <motion.button
                                     onClick={handleAddToCart}
-                                    whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.95 }}
-                                    className="w-[10.15rem] sm:w-[13rem] lg:max-[1060px]:w-[11.5rem] bg-emerald-400 dark:bg-emerald-500 flex items-center justify-center gap-1.5 text-neutral-50 text-[1.1rem] font-medium tracking-wider py-3 rounded-xl transition-colors duration-200 ease-in-out"
+                                    className="w-[10.15rem] sm:w-[13rem] lg:max-[1060px]:w-[11.5rem] bg-emerald-400 dark:bg-emerald-500 hover:bg-emerald-400/80 dark:hover:bg-emerald-400 flex items-center justify-center gap-1.5 text-neutral-50 text-[1.1rem] font-medium tracking-wider py-3 rounded-xl transition-colors duration-200 ease-linear"
                                 >
                                     <span>Add to</span>
                                     <BsCart3 className="text-[1.2rem]" />
