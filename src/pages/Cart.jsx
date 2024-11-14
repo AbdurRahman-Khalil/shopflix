@@ -46,7 +46,7 @@ export const Cart = () => {
         if (cart.length < 1) {
             return toast('Your cart is already empty!', {
                 duration: 2500,
-                icon: '🙄',
+                icon: '🙂',
                 style: {
                     background: '#eab308',
                     color: '#fefce8',
