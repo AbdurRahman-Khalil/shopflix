@@ -19,7 +19,7 @@ const productStore = (set, get) => ({
 
     // Actions
     addToCart: async (product) => {
-        // set({ addLoading: true, addError: null });
+        const loading = toast.loading("Adding product to cart...");
 
         try {
             set((state) => {
@@ -42,21 +42,21 @@ const productStore = (set, get) => ({
                     return {
                         cart: [product, ...state.cart],
                         cartLength: state.cartLength + 1,
-                        // addLoading: false
                     };
                 }
             });
-            toast.success("Product added to cart successfully!");
+            toast.dismiss(loading);
+            toast.success("Product added to cart successfully.");
 
         } catch (err) {
             console.error(err);
-            // set({ addError: err.message || "Failed to add Product to cart.", addLoading: false });
+            toast.dismiss(loading);
             toast.error("Failed to add Product to cart.");
         }
     },
 
     removeFromCart: async (productId) => {
-        // set({ deleteLoading: true, deleteError: null });
+        const loading = toast.loading("Removing product from cart...");
 
         try {
             set((state) => {
@@ -64,17 +64,17 @@ const productStore = (set, get) => ({
                 if (productToRemove) {
                     return {
                         cart: state.cart.filter((product) => product.id !== productId),
-                        cartLength: state.cartLength - productToRemove.quantity, // Decrease cart length by the quantity of the removed item
-                        // deleteLoading: false
+                        cartLength: state.cartLength - productToRemove.quantity, // Decrease cart length by the quantity of that removed item
                     };
                 }
                 return state;
             });
-            toast.success("Product removed from cart successfully!");
+            toast.dismiss(loading);
+            toast.success("Product removed from cart successfully.");
 
         } catch (err) {
             console.error(err);
-            // set({ deleteError: err.message || "Failed to Delete the book", deleteLoading: false });
+            toast.dismiss(loading);
             toast.error("Failed to remove Product from cart.");
         }
     },
@@ -91,7 +91,7 @@ const productStore = (set, get) => ({
                         }
                         : item
                 ),
-                cartLength: state.cartLength + 1, // Increase cart length
+                cartLength: state.cartLength + 1,
             }));
 
         } catch (err) {
@@ -120,7 +120,7 @@ const productStore = (set, get) => ({
 
                 return {
                     cart: updatedCart,
-                    cartLength: decreasedLength, // Adjust cart length based on decreased quantity
+                    cartLength: decreasedLength, // Adjust cart length based on decreased quantity of that item
                 };
             });
 
@@ -136,11 +136,21 @@ const productStore = (set, get) => ({
     },
 
     clearCart: () => {
-        set(() => ({
-            cart: [],
-            cartLength: 0,
-        }));
-        toast.success("Cart cleared successfully!");
+        const loading = toast.loading("Clearing cart...");
+
+        try {
+            set(() => ({
+                cart: [],
+                cartLength: 0,
+            }));
+            toast.dismiss(loading);
+            toast.success("Cart cleared successfully.");
+
+        } catch (err) {
+            console.error(err);
+            toast.dismiss(loading);
+            toast.error("Failed to clear cart.");
+        }
     },
 
     like: async (likedProduct) => {
@@ -153,7 +163,6 @@ const productStore = (set, get) => ({
                         : product
                 ),
             }));
-            // toast.success("Product Liked successfully!");
 
         } catch (err) {
             console.error(err);
@@ -171,7 +180,6 @@ const productStore = (set, get) => ({
                         : product
                 ),
             }));
-            // toast.success("Product unLiked successfully!");
 
         } catch (err) {
             console.error(err);
@@ -189,7 +197,6 @@ const productStore = (set, get) => ({
                         : product
                 ),
             }));
-            // toast.success("Product added to Wishlist successfully!");
 
         } catch (err) {
             console.error(err);
@@ -207,7 +214,6 @@ const productStore = (set, get) => ({
                         : product
                 ),
             }));
-            // toast.success("Product removed from Wishlist successfully!");
 
         } catch (err) {
             console.error(err);

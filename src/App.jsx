@@ -17,6 +17,7 @@ export const App = () => {
     style: {
       background: '#0ea5e9',
       color: '#f0f9ff',
+      border: '2px solid #bae6fd',
     },
     iconTheme: {
       primary: '#bae6fd',
@@ -29,6 +30,7 @@ export const App = () => {
     style: {
       background: '#ef4444',
       color: '#fef2f2',
+      border: '2px solid #fecaca',
     },
     iconTheme: {
       primary: '#fecaca', // fg
