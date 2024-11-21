@@ -5,15 +5,12 @@ import { devtools } from "zustand/middleware";
 
 const modalStore = (set) => ({
 
-    isModalOpen: false,
+    isClearModal: false,
+    isSuccessModal: false,
 
     // Actions
-    openModal: () => set({
-        isModalOpen: true
-    }),
-
-    closeModal: () => set({
-        isModalOpen: false
+    setModal: (modalName, state) => set({
+        [modalName]: state
     }),
 
 });

@@ -6,7 +6,7 @@ import useProductStore from "../stores/products/ProductStore";
 import useModalStore from "../stores/modal/ModalStore";
 
 import { CartItem } from "../components/cart/CartItem";
-import { Modal } from "../components/Modal";
+import { ClearModal } from "../components/modals/ClearModal";
 import { BackBtn } from "../components/BackBtn";
 
 import { IoIosArrowRoundBack, IoIosArrowRoundForward } from "react-icons/io";
@@ -18,7 +18,7 @@ import { BsCart3 } from "react-icons/bs";
 export const Cart = () => {
     const cart = useProductStore((state) => state.cart);
     const totalCartPrice = useProductStore((state) => state.totalCartPrice);
-    const openModal = useModalStore((state) => state.openModal);
+    const setModal = useModalStore((state) => state.setModal);
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -53,16 +53,31 @@ export const Cart = () => {
                 },
             });
         }
-        openModal();
+        setModal("isClearModal", true);
+    }
+
+    const handleCheckoutClick = () => {
+        if (cart.length < 1) {
+            return toast('Your cart is empty! Do some shopping.', {
+                duration: 2500,
+                icon: '😊',
+                style: {
+                    background: '#eab308',
+                    color: '#fefce8',
+                },
+            });
+        }
     }
 
 
     return (
         <>
-            <section className="mt-[6.35rem] mb-[10rem] px-5 md:px-10 lg:max-[1200px]:mx-auto lg:max-[1200px]:container xl:mx-auto xl:container duration-200 ease-linear">
-                <div className="flex gap-7 mb-[1.35rem]">
+            <section className="mt-[5.8rem] mb-[10rem] px-5 md:px-10 lg:max-[1200px]:mx-auto lg:max-[1200px]:container xl:mx-auto xl:container duration-200 ease-linear">
+                <div className="flex items-center gap-[1.1rem] mb-[1.35rem]">
                     <BackBtn />
-                    <h2 className="justify-self-center text-2xl font-semibold dark:font-medium dark:tracking-wide text-center">YOUR CART</h2>
+                    <h2 className="text-[1.7rem] uppercase font-semibold dark:font-medium">
+                        Your Cart
+                    </h2>
                 </div>
                 <motion.div
                     className="grid grid-cols-1 min-[500px]:grid-cols-2 sm:grid-cols-1 min-[1201px]:grid-cols-2 gap-[0.85rem] min-[500px]:gap-[0.7rem] sm:gap-3"
@@ -117,18 +132,18 @@ export const Cart = () => {
                             <TiDeleteOutline className="text-xl -mt-[0.1rem]" />
                             <span>CLEAR CART</span>
                         </button>
-                        <Link to={"/checkout"} className="group order-2 min-[490px]:order-3 flex items-center gap-0.5 text-[0.95rem] font-medium dark:font-normal dark:tracking-wide">
+                        <Link to={cart.length > 0 && "/checkout" } onClick={handleCheckoutClick} className="group order-2 min-[490px]:order-3 flex items-center gap-0.5 text-[0.95rem] font-medium dark:font-normal dark:tracking-wide">
                             <span>Checkout</span>
                             <IoIosArrowRoundForward className="text-2xl -mt-[0.08rem] group-hover:translate-x-[0.33rem] transition-transform duration-200 ease-linear" />
                         </Link>
                     </div>
                 </div>
             </div>
-            <Modal
+            <ClearModal
                 modalTitle={"Clear Cart"}
-                modalBody={"Are you sure want to clear the cart?"}
-                canelationText={"Cancel"}
-                actionText={"Clear"}
+                modalDesc={"Are you sure want to clear the cart?"}
+                actionOneText={"Cancel"}
+                actionTwoText={"Clear"}
             />
         </>
     );

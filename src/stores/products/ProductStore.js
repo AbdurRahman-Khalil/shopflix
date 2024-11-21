@@ -136,20 +136,27 @@ const productStore = (set, get) => ({
     },
 
     clearCart: () => {
-        const loading = toast.loading("Clearing cart...");
+        const isAtCheckout = window.location.pathname.includes("/checkout");
+        const loading = !isAtCheckout && toast.loading("Clearing cart...");
 
         try {
             set(() => ({
                 cart: [],
                 cartLength: 0,
             }));
-            toast.dismiss(loading);
-            toast.success("Cart cleared successfully.");
+
+            if (!isAtCheckout) {
+                toast.dismiss(loading);
+                toast.success("Cart has been cleared successfully.");
+            }
 
         } catch (err) {
             console.error(err);
-            toast.dismiss(loading);
-            toast.error("Failed to clear cart.");
+            
+            if (!isAtCheckout) {
+                toast.dismiss(loading);
+                toast.error("Failed to clear cart.");
+            }
         }
     },
 

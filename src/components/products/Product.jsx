@@ -5,7 +5,7 @@ import useProductStore from "../../stores/products/ProductStore";
 
 import generateSlug from "../../utils/generateSlug";
 import genSmallCaseCategory from "../../utils/genSmallCaseCategory";
-import generateUserId from "../../utils/generateUserId";
+import generateRandomId from "../../utils/generateRandomId";
 import formateDate from "../../utils/formateDate";
 import likeAnimationVariants from "../../animations/likeAnimation";
 
@@ -14,7 +14,6 @@ import { ProductRating } from "./ProductRating";
 
 import { FaHeart, FaRegHeart } from "react-icons/fa6";
 import { BsBookmark, BsBookmarkFill, BsCart3 } from "react-icons/bs";
-import toast from "react-hot-toast";
 
 
 
@@ -44,7 +43,7 @@ export const Product = ({ prod }) => {
     const sluggedTitle = generateSlug(prod.title);
     const smallCasedCategory = genSmallCaseCategory(prod.category);
 
-    const randomUserId = generateUserId();
+    const userId = generateRandomId();
     const formattedDate = formateDate();
 
     const newItem = {
@@ -53,7 +52,7 @@ export const Product = ({ prod }) => {
         price: prod.price,
         image: prod.image,
         category: prod.category,
-        likedBy: randomUserId,
+        likedBy: userId,
         likedAt: formattedDate,
     };
 

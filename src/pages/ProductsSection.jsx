@@ -2,13 +2,13 @@ import { AnimatePresence, motion } from "framer-motion";
 
 import { Navigate, useParams } from "react-router-dom";
 
-import useProductStore from "../../stores/products/ProductStore";
-import useSearchStore from "../../stores/search/SearchStore";
+import useProductStore from "../stores/products/ProductStore";
+import useSearchStore from "../stores/search/SearchStore";
 
-import searchProducts from "../../utils/searchProducts";
-import filterProducts from "../../utils/filterProducts";
+import searchProducts from "../utils/searchProducts";
+import filterProducts from "../utils/filterProducts";
 
-import { Product } from "../products/Product";
+import { Product } from "../components/products/Product";
 
 
 

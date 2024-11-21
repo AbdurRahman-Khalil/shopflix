@@ -2,18 +2,20 @@ import { Route, Routes } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
 
 import { Navbar } from "./components/navbar/Navbar";
-import { Cart } from "./pages/Cart";
 import { HomePage } from "./pages/HomePage";
-import { ProductsSection } from "./components/products/ProductsSection";
+import { ProductsSection } from "./pages/ProductsSection";
 import { Products } from "./pages/Products";
 import { ProductPage } from "./pages/ProductPage";
 import { LikedWishlistedProducts } from "./pages/LikedWishlistedProducts";
+import { Cart } from "./pages/Cart";
+import { Checkout } from "./pages/Checkout";
+import { ProtectedRoute } from "./pages/ProtectedRoute";
 
 
 
 export const App = () => {
   const succesToast = {
-    duration: 2500,
+    duration: 2200,
     style: {
       background: '#0ea5e9',
       color: '#f0f9ff',
@@ -26,7 +28,7 @@ export const App = () => {
   }
 
   const errorToast = {
-    duration: 2500,
+    duration: 2200,
     style: {
       background: '#ef4444',
       color: '#fef2f2',
@@ -69,6 +71,14 @@ export const App = () => {
             <Route path="/wishlist" element={<LikedWishlistedProducts />} />
 
             <Route path="/cart" element={<Cart />} />
+            <Route
+              path="/checkout"
+              element={
+                <ProtectedRoute>
+                  <Checkout />
+                </ProtectedRoute>
+              }
+            />
 
           </Routes>
         </main>

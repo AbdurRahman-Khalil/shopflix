@@ -66,7 +66,7 @@ export const Navbar = () => {
 
 
     return (
-        <nav className="fixed top-0 left-3 right-3 z-10 flex items-center justify-between bg-neutral-50/40 dark:bg-neutral-900/50 backdrop-blur-[70px] ring-1 ring-neutral-900/15 dark:ring-neutral-50/20 rounded-xl max-w-[100%] pl-[0.82rem] pr-[0.58rem] md:pr-[0.86rem] md:dark:pr-[0.92rem] my-1.5 pt-[0.125rem] pb-[0.5rem]">
+        <nav className="fixed top-0 left-3 right-3 z-10 flex items-center justify-between bg-neutral-50/35 dark:bg-neutral-900/35 backdrop-blur-[40px] ring-1 ring-neutral-900/15 dark:ring-neutral-50/20 rounded-xl max-w-[100%] pl-[0.82rem] pr-[0.58rem] md:pr-[0.86rem] md:dark:pr-[0.92rem] my-1.5 pt-[0.125rem] pb-[0.5rem]">
             <Link to={"/"} className="text-[2.4rem] font-bold z-20">
                 Shopflix
             </Link>

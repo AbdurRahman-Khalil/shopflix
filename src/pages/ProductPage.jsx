@@ -6,7 +6,7 @@ import useProductStore from "../stores/products/ProductStore";
 
 import generateSlug from "../utils/generateSlug";
 import formateDate from "../utils/formateDate";
-import generateUserId from "../utils/generateUserId";
+import generateRandomId from "../utils/generateRandomId";
 import likeAnimationVariants from "../animations/likeAnimation";
 
 import { BackBtn } from "../components/BackBtn";
@@ -47,7 +47,7 @@ export const ProductPage = () => {
         addToCart(newItem);
     }
 
-    const randomUserId = generateUserId();
+    const userId = generateRandomId();
     const formattedDate = formateDate();
 
     const newItem = {
@@ -56,7 +56,7 @@ export const ProductPage = () => {
         price: openedProduct.price,
         image: openedProduct.image,
         category: openedProduct.category,
-        likedBy: randomUserId,
+        likedBy: userId,
         likedAt: formattedDate,
     };
 

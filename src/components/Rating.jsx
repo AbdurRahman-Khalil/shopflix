@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import useProductStore from "../stores/products/ProductStore";
 
-import generateUserId from "../utils/generateUserId";
+import generateRandomId from "../utils/generateRandomId";
 import formatDate from "../utils/formateDate";
 
 import { FaStar, FaRegStar } from "react-icons/fa";
@@ -15,8 +15,8 @@ export const Rating = ({ productId, addStarStyles }) => {
 
     const [rating, setRating] = useState(null);
 
-    const ratingId = generateUserId();
-    const userId = generateUserId();
+    const ratingId = generateRandomId();
+    const userId = generateRandomId();
     const formattedDate = formatDate();
 
     const handleRating = async (currentRating) => {
