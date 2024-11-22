@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
 
-import toast from "react-hot-toast";
+import { toast } from "sonner";
 
 import productsData from "./ProductData";
 
@@ -19,8 +19,6 @@ const productStore = (set, get) => ({
 
     // Actions
     addToCart: async (product) => {
-        const loading = toast.loading("Adding product to cart...");
-
         try {
             set((state) => {
                 const existingProduct = state.cart.find((item) => item.id === product.id);
@@ -45,19 +43,15 @@ const productStore = (set, get) => ({
                     };
                 }
             });
-            toast.dismiss(loading);
             toast.success("Product added to cart successfully.");
 
         } catch (err) {
             console.error(err);
-            toast.dismiss(loading);
             toast.error("Failed to add Product to cart.");
         }
     },
 
     removeFromCart: async (productId) => {
-        const loading = toast.loading("Removing product from cart...");
-
         try {
             set((state) => {
                 const productToRemove = state.cart.find((product) => product.id === productId);
@@ -69,12 +63,10 @@ const productStore = (set, get) => ({
                 }
                 return state;
             });
-            toast.dismiss(loading);
             toast.success("Product removed from cart successfully.");
 
         } catch (err) {
             console.error(err);
-            toast.dismiss(loading);
             toast.error("Failed to remove Product from cart.");
         }
     },
@@ -96,6 +88,7 @@ const productStore = (set, get) => ({
 
         } catch (err) {
             console.error(err);
+            toast.error("Failed to increase quantity of the Product.");
         }
     },
 
@@ -126,6 +119,7 @@ const productStore = (set, get) => ({
 
         } catch (err) {
             console.error(err);
+            toast.error("Failed to decrease quantity of the Product.");
         }
     },
 
@@ -137,7 +131,6 @@ const productStore = (set, get) => ({
 
     clearCart: () => {
         const isAtCheckout = window.location.pathname.includes("/checkout");
-        const loading = !isAtCheckout && toast.loading("Clearing cart...");
 
         try {
             set(() => ({
@@ -146,15 +139,13 @@ const productStore = (set, get) => ({
             }));
 
             if (!isAtCheckout) {
-                toast.dismiss(loading);
                 toast.success("Cart has been cleared successfully.");
             }
 
         } catch (err) {
             console.error(err);
-            
+
             if (!isAtCheckout) {
-                toast.dismiss(loading);
                 toast.error("Failed to clear cart.");
             }
         }

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import toast from "react-hot-toast";
+import { toast } from "sonner";
 
 import useProductStore from "../stores/products/ProductStore";
 import useModalStore from "../stores/modal/ModalStore";
@@ -44,28 +44,14 @@ export const Cart = () => {
 
     const handleClearCart = () => {
         if (cart.length < 1) {
-            return toast('Your cart is already empty!', {
-                duration: 2500,
-                icon: '🙂',
-                style: {
-                    background: '#eab308',
-                    color: '#fefce8',
-                },
-            });
+            return toast.info('Your cart is already empty!');
         }
         setModal("isClearModal", true);
     }
 
     const handleCheckoutClick = () => {
         if (cart.length < 1) {
-            return toast('Your cart is empty! Do some shopping.', {
-                duration: 2500,
-                icon: '😊',
-                style: {
-                    background: '#eab308',
-                    color: '#fefce8',
-                },
-            });
+            return toast.info('Your cart is empty! Please do some shopping.');
         }
     }
 
@@ -132,7 +118,7 @@ export const Cart = () => {
                             <TiDeleteOutline className="text-xl -mt-[0.1rem]" />
                             <span>CLEAR CART</span>
                         </button>
-                        <Link to={cart.length > 0 && "/checkout" } onClick={handleCheckoutClick} className="group order-2 min-[490px]:order-3 flex items-center gap-0.5 text-[0.95rem] font-medium dark:font-normal dark:tracking-wide">
+                        <Link to={cart.length > 0 && "/checkout"} onClick={handleCheckoutClick} className="group order-2 min-[490px]:order-3 flex items-center gap-0.5 text-[0.95rem] font-medium dark:font-normal dark:tracking-wide">
                             <span>Checkout</span>
                             <IoIosArrowRoundForward className="text-2xl -mt-[0.08rem] group-hover:translate-x-[0.33rem] transition-transform duration-200 ease-linear" />
                         </Link>
