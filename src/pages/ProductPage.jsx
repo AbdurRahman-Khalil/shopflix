@@ -63,11 +63,31 @@ export const ProductPage = () => {
     const handleLike = () => like(newItem);
     const handleWishlist = () => addToWishlist(newItem);
 
+    const pageVariants = {
+        initial: {
+            x: 300,
+            opacity: 0,
+            filter: "blur(20px)"
+        },
+        animate: {
+            x: 0,
+            opacity: 1,
+            filter: "blur(0px)",
+            transition: {
+                duration: 0.09,
+                ease: [.19, .55, .79, .81]
+            },
+        },
+    };
+
 
     return (
-        <section
+        <motion.section
             id="product_page"
             className="mt-[5.6rem] px-5 md:px-10 xl:mx-auto xl:container duration-200 ease-linear"
+            variants={pageVariants}
+            initial="initial"
+            animate="animate"
         >
             <BackBtn />
             {openedProduct ? (
@@ -185,7 +205,7 @@ export const ProductPage = () => {
             ) : (
                 <p>Product not found</p>
             )}
-        </section>
+        </motion.section>
     );
 };
 

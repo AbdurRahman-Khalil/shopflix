@@ -21,14 +21,14 @@ export const App = () => {
         position="top-center"
         richColors
       />
-      <div className="wrapper font-montserrat bg-sk">
+      <div className="wrapper font-montserrat">
         <header>
           <Navbar />
         </header>
 
         <main className="overflow-hidden">
-          <Routes>
 
+          <Routes>
             <Route path="/" element={<HomePage />} />
 
             <Route path="/products" element={<Products />}>
@@ -49,8 +49,8 @@ export const App = () => {
                 </ProtectedRoute>
               }
             />
-
           </Routes>
+          
         </main>
 
         <footer></footer>

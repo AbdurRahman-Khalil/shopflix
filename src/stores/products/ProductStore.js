@@ -20,8 +20,8 @@ const productStore = (set, get) => ({
     // Actions
     addToCart: async (product) => {
         try {
+            const existingProduct = get().cart.find((item) => item.id === product.id);
             set((state) => {
-                const existingProduct = state.cart.find((item) => item.id === product.id);
                 if (existingProduct) {
                     return {
                         cart: state.cart.map((item) =>
@@ -43,7 +43,9 @@ const productStore = (set, get) => ({
                     };
                 }
             });
-            toast.success("Product added to cart successfully.");
+            toast.success(
+                `Product added to cart successfully. ${existingProduct ? `x${existingProduct.quantity + 1}` : ""}
+            `);
 
         } catch (err) {
             console.error(err);

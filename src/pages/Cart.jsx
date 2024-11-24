@@ -51,7 +51,7 @@ export const Cart = () => {
 
     const handleCheckoutClick = () => {
         if (cart.length < 1) {
-            return toast.info('Your cart is empty! Please do some shopping.');
+            return toast.info('Your cart is empty! Do some shopping.');
         }
     }
 
