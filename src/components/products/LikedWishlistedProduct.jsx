@@ -60,7 +60,7 @@ export const LikedWishlistedProduct = ({ item }) => {
         >
             <img src={item.image} className="max-w-full h-auto aspect-square object-cover object-center rounded-2xl sm:rounded-xl" alt="" />
             <motion.div
-                className="absolute top-0 left-0 bg-neutral-50/20 dark:bg-neutral-900/30 backdrop-blur-[20px] flex flex-col justify-center text-center p-3 w-full min-h-full rounded-2xl sm:rounded-xl"
+                className="absolute top-0 left-0 text-neutral-900/90 dark:text-neutral-50 bg-neutral-50/20 dark:bg-neutral-900/30 backdrop-blur-[20px] flex flex-col justify-center text-center p-3 w-full min-h-full rounded-2xl sm:rounded-xl"
                 animate={isHovered ? "visible" : "hidden"}
                 variants={containerVariants}
             >
@@ -79,11 +79,11 @@ export const LikedWishlistedProduct = ({ item }) => {
                     &#x24;<span className="ml-[0.15rem]">{item.price}</span>
                 </motion.p>
             </motion.div>
-            <div className="flex items-center gap-2.5 absolute bottom-0 right-0 p-[0.45rem] pr-[0.4rem] pb-[0.4rem] bg-neutral-50/20 backdrop-blur-md rounded-ss-2xl rounded-ee-2xl sm:rounded-ss-xl sm:rounded-ee-xl duration-200 ease-linear">
+            <div className="flex items-center gap-2.5 absolute bottom-0 right-0 p-[0.45rem] pr-[0.4rem] pb-[0.4rem] bg-neutral-50/25 backdrop-blur-md rounded-ss-2xl rounded-ee-2xl sm:rounded-ss-xl sm:rounded-ee-xl duration-200 ease-linear">
                 <Link
                     to={`/products/${smallCasedCategory}/${sluggedTitle}`}
                 >
-                    <RiShareBoxLine className="text-[1.25rem] text-neutral-800" />
+                    <RiShareBoxLine className="text-[1.25rem] text-neutral-800 dark:text-neutral-800" />
                 </Link>
                 {
                     (!isLikedProducts && isWishlist)

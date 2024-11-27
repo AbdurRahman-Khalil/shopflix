@@ -94,7 +94,7 @@ export const Navbar = () => {
                     <Link to={"/liked_products"} className="max-[463px]:hidden">
                         <BiBookHeart className="text-[1.55rem] text-red-500/85 dark:text-red-400" />
                     </Link>
-                    <Link to={"/cart"} className="relative max-[359px]:hidden">
+                    <Link to={"/cart"} className="relative">
                         <BsCart3 className="text-[1.5rem]" />
                         <p className={`absolute -top-3.5 -right-3.5 z-10 text-[0.75rem] text-emerald-600 dark:text-emerald-400 font-semibold tracking-wide 
                             ${cartLength >= 10 ? "w-[1.6rem] h-[1.6rem]" : "w-[1.48rem] h-[1.48rem]"} 
@@ -126,15 +126,6 @@ export const Navbar = () => {
                     bg-neutral-50 dark:bg-neutral-900 ring-1 ring-neutral-900/15 dark:ring-neutral-50/20 rounded-lg shadow-lg px-5 pt-8 pb-3.5 md:hidden
                     `}
             >
-                {/* <Link to={"/cart"} className="relative min-[360px]:hidden ml-auto">
-                    <BsCart3 className="text-[1.5rem]" />
-                    <p className={`absolute -top-3.5 -right-3.5 z-10 text-[0.75rem] text-emerald-600 dark:text-emerald-400 font-semibold tracking-wide 
-                            ${cartLength >= 10 ? "w-[1.6rem] h-[1.6rem]" : "w-[1.48rem] h-[1.48rem]"} 
-                            flex items-center justify-center bg-neutral-50/90 dark:bg-neutral-900/90 ring-1 ring-neutral-900/15 dark:ring-neutral-50/30 rounded-full`}
-                    >
-                        {cartLength}
-                    </p>
-                </Link> */}
                 <li
                     className={`${staggerChildren ? "delay-400 opacity-100 translate-x-0" : "opacity-0 translate-x-5"
                         } transition duration-300`}
@@ -175,7 +166,7 @@ export const Navbar = () => {
                     </Link>
                 </li>
                 <li
-                    className={`${staggerChildren ? "delay-300 opacity-100 translate-x-0" : "opacity-0 translate-x-5"
+                    className={`${staggerChildren ? "delay-500 opacity-100 translate-x-0" : "opacity-0 translate-x-5"
                         } transition duration-300`}
                 >
                     <Link to={"/wishlist"} onClick={closeMenu}>

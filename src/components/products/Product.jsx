@@ -79,11 +79,13 @@ export const Product = ({ prod }) => {
             }}
             className="relative bg-neutral-50 dark:bg-neutral-900 text-neutral-800 dark:text-neutral-100 rounded-xl ring-2 ring-neutral-900/10 dark:ring-neutral-50/10 p-1.5"
         >
-            <p className="text-[0.9rem] text-neutral-100 tracking-wider absolute top-1.5 right-1.5 z-10 px-[0.7rem] pt-1.5 pb-[0.35rem]
+            <Link to={`/products/${smallCasedCategory}`}>
+                <p className="text-[0.9rem] text-neutral-100 tracking-wider absolute top-1.5 right-1.5 z-10 px-[0.7rem] pt-1.5 pb-[0.35rem]
                 bg-neutral-800/20 backdrop-blur-xl rounded-se-xl rounded-es-xl"
-            >
-                {prod.category}
-            </p>
+                >
+                    {prod.category}
+                </p>
+            </Link>
             <Link to={`/products/${smallCasedCategory}/${sluggedTitle}`}>
                 <div id="product-img" className="h-[300px] min-[405px]:h-[330px] min-[505px]:h-[360px] sm:h-[300px] min-[740px]:h-[330px] min-[900px]:h-[360px] lg:h-[300px] xl:h-[280px] overflow-hidden rounded-xl duration-200 ease-in-out">
                     <img src={prod.image} className="max-w-full min-h-full rounded-xl object-cover object-center hover:scale-105 duration-200 ease-in-out cursor-pointer" alt="" />
