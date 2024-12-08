@@ -17,7 +17,11 @@ export default {
         spaceGrotesk: ["Space Grotesk", "sans-serif"],
         playwriteNGModern: ["Playwrite NG Modern", "sans-serif"],
         jost: ["Jost", "sans-serif"],
-      }
+      },
+      content: {
+        'sparkle': "'✨'",
+        'lightning': "'⚡'",
+      },
     },
   },
   plugins: [],

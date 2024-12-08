@@ -17,14 +17,13 @@ export const ProductsSection = () => {
     const searchQuery = useSearchStore((state) => state.searchQuery);
 
     const { category } = useParams();
-    
 
     // To allow only specified categories
     const allowedCategories = ["all", "watches", "mobiles", "shoes", "glasses", "hoodies", "laptops", "liked", "wishlisted"];
 
     // Checking if the category is valid
     if (!allowedCategories.includes(category)) {
-        return <Navigate to="/products/all" replace />; // Redirecting to "all" if category is invalid
+        return <Navigate to="/products/all" replace />; // Redirecting to "all" if a category is invalid
     }
 
 
@@ -41,7 +40,7 @@ export const ProductsSection = () => {
 
 
     return (
-        <motion.section id={category} layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[1.2rem] sm:gap-[0.85rem] min-[850px]:gap-[0.95rem] lg:gap-[0.85rem] xl:gap-[0.82rem]">
+        <motion.section id={category} layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 min-[1700px]:grid-cols-5 gap-[1.2rem] sm:gap-[0.85rem] min-[850px]:gap-[0.95rem] lg:gap-[0.85rem] xl:gap-[0.82rem]">
             <AnimatePresence>
                 {
                     filteredProducts.map((product) => (

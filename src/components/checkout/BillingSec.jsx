@@ -59,14 +59,14 @@ export const BillingSec = () => {
 
 
     return (
-        <div className="max-w-[50rem] mt-8">
+        <div className="max-w-[50rem] mt-10">
             <h2 className="flex items-center gap-2 text-[1.5rem] text-neutral-800 dark:text-neutral-100 font-semibold dark:font-medium mb-[1.2rem] ">
                 <RiBillLine className="text-[1.5rem] mb-0.5" />
                 Billing details
             </h2>
             <motion.form
                 onSubmit={handlePurchaseClick}
-                className="grid grid-cols-1 min-[450px]:grid-cols-2 gap-3.5 min-[450px]:gap-4 min-[640px]:gap-5 text-[0.95rem] mb-8"
+                className="grid grid-cols-1 min-[450px]:grid-cols-2 gap-3.5 min-[450px]:gap-4 min-[640px]:gap-5 text-[0.95rem]"
                 initial="hidden"
                 animate="visible"
                 variants={containerVariants}

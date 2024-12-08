@@ -1,5 +1,6 @@
-import { useParams } from "react-router-dom";
+import { useEffect } from "react";
 
+import { useParams } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
 import useProductStore from "../stores/products/ProductStore";
@@ -30,8 +31,11 @@ export const ProductPage = () => {
     const removeFromWishlist = useProductStore((state) => state.removeFromWishlist);
 
     const { slug } = useParams();
-
     const openedProduct = products.find(product => generateSlug(product.title) === slug);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     const handleAddToCart = () => {
         const newItem = {
@@ -84,7 +88,7 @@ export const ProductPage = () => {
     return (
         <motion.section
             id="product_page"
-            className="mt-[5.6rem] px-5 md:px-10 xl:mx-auto xl:container duration-200 ease-linear"
+            className="mt-[5.6rem] mb-[2.5rem] px-5 md:px-10 xl:mx-auto xl:container duration-200 ease-linear"
             variants={pageVariants}
             initial="initial"
             animate="animate"

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import { motion } from "framer-motion";
 // import Confetti from "react-confetti/dist/types/Confetti";
@@ -11,12 +11,23 @@ import { Link } from "react-router-dom";
 
 
 export const SuccessModal = ({ modalTitle, modalDesc, actionOneText, actionTwoText }) => {
+    const cartLength = useProductStore((state) => state.cartLength);
     const totalCartPrice = useProductStore((state) => state.totalCartPrice);
     const clearCart = useProductStore((state) => state.clearCart);
     const isSuccessModal = useModalStore((state) => state.isSuccessModal);
     const setModal = useModalStore((state) => state.setModal);
 
+    const [windowSize, setWindowSize] = useState({
+        width: undefined,
+        height: undefined,
+    })
+
     useEffect(() => {
+        window.onresize = () => setWindowSize({
+            width: window.innerWidth,
+            height: window.innerHeight,
+        });
+
         if (isSuccessModal) {
             document.body.style.overflow = "hidden";
         } else {
@@ -39,8 +50,8 @@ export const SuccessModal = ({ modalTitle, modalDesc, actionOneText, actionTwoTe
             {isSuccessModal && (
                 <>
                     <Confetti
-                        width={window.innerWidth}
-                        height={window.innerHeight}
+                        width={windowSize.width}
+                        height={windowSize.height}
                         recycle={true}
                         style={{ zIndex: 25 }}
                     />
@@ -74,9 +85,12 @@ export const SuccessModal = ({ modalTitle, modalDesc, actionOneText, actionTwoTe
                                     {modalDesc}
                                 </span>
                                 <span>
-                                    You've spended&nbsp;
+                                    Items purchased: {cartLength}
+                                </span>
+                                <span>
+                                    Amount spended:&nbsp;
                                     <span className="text-[1.3rem] font-semibold dark:font-medium dark:tracking-wide">
-                                        &#x24;<span className="ml-[0.15rem]">{totalCartPrice()}</span>
+                                        &#x24;<span className="ml-[0.1rem]">{totalCartPrice()}</span>
                                     </span>
                                 </span>
                             </p>

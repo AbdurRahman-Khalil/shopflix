@@ -76,7 +76,7 @@ export const LikedWishlistedProducts = () => {
             </h2>
             <motion.div
                 key={location.pathname}
-                className="grid grid-cols-1 gap-[1.15rem] min-[340px]:gap-[0.8rem] min-[340px]:grid-cols-2 min-[420px]:gap-[0.935rem] min-[620px]:grid-cols-3 min-[859px]:grid-cols-4 min-[1060px]:grid-cols-5"
+                className="grid grid-cols-1 gap-[1.15rem] min-[340px]:gap-[0.8rem] min-[340px]:grid-cols-2 min-[420px]:gap-[0.935rem] min-[620px]:grid-cols-3 min-[859px]:grid-cols-4 min-[1060px]:grid-cols-5 min-[1700px]:grid-cols-6"
                 initial="hidden"
                 animate="visible"
                 variants={containerVariants}
@@ -98,7 +98,7 @@ export const LikedWishlistedProducts = () => {
                                 }
                             </p>
                             <Link
-                                to={"/products/all"}
+                                to={"/products"}
                                 className="max-w-fit mx-auto text-[1.05rem] font-medium dark:font-normal dark:tracking-wide flex justify-center items-center gap-1.5
                                 hover:underline underline-offset-2"
                             >

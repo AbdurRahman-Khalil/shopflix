@@ -107,7 +107,7 @@ export const Cart = () => {
                         <p className="text-[1.5rem] font-semibold dark:font-medium dark:tracking-wide">&#x24;<span className="ml-[0.15rem]">{totalCartPrice()}</span></p>
                     </div>
                     <div className="flex justify-between items-center gap-x-14 gap-y-6 min-[489px]:gap-14 flex-wrap mt-5">
-                        <Link to={"/products/all"} className="group order-1 flex items-center gap-0.5 text-[0.95rem] font-medium dark:font-normal dark:tracking-wide">
+                        <Link to={"/products"} className="group order-1 flex items-center gap-0.5 text-[0.95rem] font-medium dark:font-normal dark:tracking-wide">
                             <IoIosArrowRoundBack className="text-2xl -mt-[0.08rem] group-hover:-translate-x-[0.33rem] transition-transform duration-200 ease-linear" />
                             <span>Shop more</span>
                         </Link>

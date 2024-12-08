@@ -8,7 +8,7 @@ export const Checkout = () => {
 
     return (
         <>
-            <section className="mt-[5.8rem] mb-[0.8rem] px-5 md:px-10 xl:mx-auto xl:container duration-200 ease-linear">
+            <section className="mt-[5.8rem] mb-[2.5rem] px-5 md:px-10 xl:mx-auto xl:container duration-200 ease-linear">
                 <div className="flex items-center gap-[1.1rem] mb-[1.35rem]">
                     <BackBtn />
                     <h2 className="text-[1.7rem] uppercase font-semibold dark:font-medium">

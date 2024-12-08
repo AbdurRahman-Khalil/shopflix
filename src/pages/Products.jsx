@@ -1,14 +1,20 @@
+import { useEffect } from "react";
+
 import { Outlet } from "react-router-dom";
 
-import { MenuLink } from "../components/navbar/MenuLink";
-import { Categories } from "../components/categories/Categories";
 import { SearchBar } from "../components/SearchBar";
+import { MenuLink } from "../components/navbar/MenuLink";
 
 
 export const Products = () => {
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
+
     return (
-        <section id="products" className="mb-[3.75rem] px-5 md:px-10 xl:mx-auto xl:container">
-            <Categories />
+        <section id="products" className="mt-[5.8rem] mb-[2.5rem] px-5 md:px-10 xl:mx-auto xl:container duration-200 ease-linear">
             <h2 className="text-[2rem] text-neutral-800 dark:text-neutral-100 font-semibold dark:font-medium mb-[2.35rem] relative after:absolute after:-bottom-1 after:left-0 after:bg-neutral-800 dark:after:bg-neutral-100 after:h-[0.2rem] after:w-[6.5rem] after:rounded-full">
                 Our Products
             </h2>

@@ -12,14 +12,27 @@
         scroll-behavior: smooth;
     }
 
-    #homepage {
+    #hero {
         background-image: url("./assets/bg.jpg");
         background-size: cover;
         background-position: center;
     }
 
-    .dark #homepage {
+    .dark #hero {
         background-image: url("./assets/bg_dark.jpg");
+    }
+
+    #newsletter {
+        background-image: url("./assets/bg_newsletter.jpg");
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
+    #not-found-page {
+        background-image: url("./assets/notfound.jpg");
+        background-size: cover;
+        background-position: center;
     }
 
     /* .slider {

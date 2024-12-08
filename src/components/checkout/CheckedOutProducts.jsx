@@ -102,6 +102,6 @@ export const CheckedOutProducts = () => {
                     </motion.div>
                 </div>
             </div>
-        </div >
+        </div>
     );
 };

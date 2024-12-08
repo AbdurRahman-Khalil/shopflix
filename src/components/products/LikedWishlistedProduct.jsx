@@ -83,7 +83,7 @@ export const LikedWishlistedProduct = ({ item }) => {
                 <Link
                     to={`/products/${smallCasedCategory}/${sluggedTitle}`}
                 >
-                    <RiShareBoxLine className="text-[1.25rem] text-neutral-800 dark:text-neutral-800" />
+                    <RiShareBoxLine className="text-[1.25rem] text-neutral-800" />
                 </Link>
                 {
                     (!isLikedProducts && isWishlist)
