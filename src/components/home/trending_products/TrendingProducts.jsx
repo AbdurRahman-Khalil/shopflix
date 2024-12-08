@@ -1,7 +1,8 @@
-import shuffleList from "shuffle-list";
 import { Link } from "react-router-dom";
 
 import useProductStore from "../../../stores/products/ProductStore";
+
+import shuffleArray from "../../../utils/shuffleArray";
 
 import { SectionHead } from "../../SectionHead";
 import { TrendingProduct } from "./TrendingProduct";
@@ -13,7 +14,7 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 export const TrendingProducts = () => {
     const products = useProductStore((state) => state.products);
 
-    const recentOnes = shuffleList(products).slice(0, 10);
+    const recentOnes = shuffleArray(products).slice(0, 10);
 
 
     return (
