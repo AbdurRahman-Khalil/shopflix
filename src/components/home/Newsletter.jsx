@@ -49,7 +49,7 @@ export const Newsletter = ({ newsLetterHeading, newsLetterParag, formPlaceholder
                             onChange={(e) => setEmail(e.target.value)}
                         />
                         <button type="submit">
-                            <BsArrowRightCircleFill className="text-[1.75rem] text-sky-800 hover:translate-x-[0.25rem] transition-transform duration-200 ease-linear cursor-pointer" />
+                            <BsArrowRightCircleFill className="text-[1.75rem] text-cyan-950 hover:translate-x-[0.25rem] transition-transform duration-200 ease-linear cursor-pointer" />
                         </button>
                     </form>
                 </motion.div>
