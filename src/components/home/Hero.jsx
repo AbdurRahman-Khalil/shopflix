@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 import hp from "../../assets/hero.png";
@@ -42,14 +43,16 @@ export const Hero = () => {
                     >
                         Explore the latest trends & must–haves, where fashion meets individuality. Find inspiration for your everyday look and styles.
                     </motion.p>
-                    <motion.button
-                        initial={{ scale: 0.9, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        transition={{ duration: 0.4, delay: 1.25, ease: 'easeInOut' }}
-                        className="text-[0.95rem] lg:text-base text-neutral-100 tracking-wide bg-neutral-900/80 hover:bg-neutral-900/70 rounded-xl mt-1.5 px-4 py-3"
-                    >
-                        Explore Now
-                    </motion.button>
+                    <Link to={"/products/all"}>
+                        <motion.button
+                            initial={{ scale: 0.9, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 1 }}
+                            transition={{ duration: 0.4, delay: 1.25, ease: 'easeInOut' }}
+                            className="text-[0.95rem] lg:text-base text-neutral-100 tracking-wide bg-neutral-900/80 hover:bg-neutral-900/70 rounded-xl mt-1.5 px-4 py-3"
+                        >
+                            Explore Now
+                        </motion.button>
+                    </Link>
                 </motion.div>
                 <motion.img
                     initial={{ scale: 1.3, opacity: 0 }}
