@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
@@ -54,6 +56,10 @@ export const Cart = () => {
             return toast.info('Your cart is empty! Do some shopping.');
         }
     }
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
 
     return (

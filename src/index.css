@@ -30,7 +30,7 @@
     }
 
     #not-found-page {
-        background-image: url("./assets/notfound.jpg");
+        background-image: url("./assets/bg_not_found_page.jpg");
         background-size: cover;
         background-position: center;
     }

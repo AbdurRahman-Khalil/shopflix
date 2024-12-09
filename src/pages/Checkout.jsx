@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import { CheckedOutProducts } from "../components/checkout/CheckedOutProducts";
 import { BillingSec } from "../components/checkout/BillingSec";
 import { BackBtn } from "../components/BackBtn";
@@ -6,6 +8,11 @@ import { SuccessModal } from "../components/modals/SuccessModal";
 
 export const Checkout = () => {
 
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
+    
     return (
         <>
             <section className="mt-[5.8rem] mb-[2.5rem] px-5 md:px-10 xl:mx-auto xl:container duration-200 ease-linear">
