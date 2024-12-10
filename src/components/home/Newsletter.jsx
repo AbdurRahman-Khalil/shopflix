@@ -13,8 +13,8 @@ export const Newsletter = ({ newsLetterHeading, newsLetterParag, formPlaceholder
     const handleSubscription = (e) => {
         e.preventDefault();
 
-        toast.message("Newsletter Subscribed Successfully ✔", {
-            description: "Thank you for Subscribing to Shopflix Newsletter 😊",
+        toast.message("Subscribed to Newsletter Successfully✅", {
+            description: "Thank you for Subscribing to Shopflix Newsletter😊",
         });
 
         setEmail("");
